@@ -1,0 +1,89 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aws": "https://aws.amazon.com/documentdb/",
+    "docdb": "https://docs.aws.amazon.com/documentdb/latest/developerguide/",
+    "DBCluster": {
+      "@id": "aws:DBCluster",
+      "@type": "SoftwareApplication",
+      "@context": {
+        "DBClusterIdentifier": {
+          "@id": "aws:DBClusterIdentifier",
+          "@type": "xsd:string"
+        },
+        "DBClusterArn": {
+          "@id": "aws:DBClusterArn",
+          "@type": "@id"
+        },
+        "Status": {
+          "@id": "schema:status",
+          "@type": "xsd:string"
+        },
+        "Engine": {
+          "@id": "aws:Engine",
+          "@type": "xsd:string"
+        },
+        "EngineVersion": {
+          "@id": "schema:softwareVersion",
+          "@type": "xsd:string"
+        },
+        "Endpoint": {
+          "@id": "schema:url",
+          "@type": "xsd:string"
+        },
+        "ReaderEndpoint": {
+          "@id": "aws:ReaderEndpoint",
+          "@type": "xsd:string"
+        },
+        "Port": {
+          "@id": "aws:Port",
+          "@type": "xsd:integer"
+        },
+        "MasterUsername": {
+          "@id": "aws:MasterUsername",
+          "@type": "xsd:string"
+        },
+        "StorageEncrypted": {
+          "@id": "aws:StorageEncrypted",
+          "@type": "xsd:boolean"
+        },
+        "BackupRetentionPeriod": {
+          "@id": "aws:BackupRetentionPeriod",
+          "@type": "xsd:integer"
+        },
+        "ClusterCreateTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "DeletionProtection": {
+          "@id": "aws:DeletionProtection",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+    "DBInstance": {
+      "@id": "aws:DBInstance",
+      "@type": "SoftwareApplication",
+      "@context": {
+        "DBInstanceIdentifier": {
+          "@id": "aws:DBInstanceIdentifier",
+          "@type": "xsd:string"
+        },
+        "DBInstanceClass": {
+          "@id": "aws:DBInstanceClass",
+          "@type": "xsd:string"
+        },
+        "DBInstanceStatus": {
+          "@id": "schema:status",
+          "@type": "xsd:string"
+        },
+        "AvailabilityZone": {
+          "@id": "aws:AvailabilityZone",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}
