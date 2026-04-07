@@ -169,6 +169,8 @@ paths:
           description: Successful response with the deleted DB cluster details.
         '404':
           description: DB cluster not found.
+      tags:
+        - '#DeleteDBCluster'
   /#CreateDBInstance:
     post:
       operationId: createDBInstance
@@ -223,6 +225,8 @@ paths:
           description: Successful response with the created DB instance details.
         '400':
           description: Bad request error.
+      tags:
+        - '#CreateDBInstance'
   /#DescribeDBInstances:
     get:
       operationId: describeDBInstances
@@ -262,6 +266,8 @@ paths:
           description: Successful response with DB instance details.
         '404':
           description: DB instance not found.
+      tags:
+        - '#DescribeDBInstances'
 components:
   schemas:
     CreateDBClusterResult:
@@ -337,3 +343,7 @@ components:
       name: Authorization
       in: header
       description: AWS Signature Version 4 authentication.
+tags:
+  - name: '#CreateDBInstance'
+  - name: '#DeleteDBCluster'
+  - name: '#DescribeDBInstances'

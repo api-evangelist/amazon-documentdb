@@ -5,14 +5,14 @@ url: https://aws.amazon.com/documentdb/
 created: '2024-01-15'
 modified: '2026-03-16'
 tags:
-  - AWS
   - Amazon Web Services
-  - DocumentDB
+  - AWS
+  - Database
   - Document Database
+  - DocumentDB
+  - Managed Database
   - MongoDB
   - NoSQL
-  - Database
-  - Managed Database
 apis:
   - name: Amazon DocumentDB API
     description: API for managing Amazon DocumentDB clusters, instances, and related resources.
