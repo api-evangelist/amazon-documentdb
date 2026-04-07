@@ -17,7 +17,7 @@ paths:
   /:
     post:
       operationId: createDBCluster
-      summary: Create DB Cluster
+      summary: Amazon DocumentDB Create DB Cluster
       description: Creates a new Amazon DocumentDB cluster. A cluster consists of one or more instances that are connected to a shared storage volume.
       parameters:
         - name: Action
@@ -88,7 +88,7 @@ paths:
           description: Bad request error.
     get:
       operationId: describeDBClusters
-      summary: Describe DB Clusters
+      summary: Amazon DocumentDB Describe DB Clusters
       description: Returns information about provisioned Amazon DocumentDB clusters.
       parameters:
         - name: Action
@@ -131,7 +131,7 @@ paths:
   /#DeleteDBCluster:
     post:
       operationId: deleteDBCluster
-      summary: Delete DB Cluster
+      summary: Amazon DocumentDB Delete DB Cluster
       description: Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
       parameters:
         - name: Action
@@ -172,7 +172,7 @@ paths:
   /#CreateDBInstance:
     post:
       operationId: createDBInstance
-      summary: Create DB Instance
+      summary: Amazon DocumentDB Create DB Instance
       description: Creates a new DB instance within a DocumentDB cluster.
       parameters:
         - name: Action
@@ -226,7 +226,7 @@ paths:
   /#DescribeDBInstances:
     get:
       operationId: describeDBInstances
-      summary: Describe DB Instances
+      summary: Amazon DocumentDB Describe DB Instances
       description: Returns information about provisioned Amazon DocumentDB instances.
       parameters:
         - name: Action
