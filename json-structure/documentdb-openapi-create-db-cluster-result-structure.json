@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-documentdb/refs/heads/main/json-structure/documentdb-openapi-create-db-cluster-result-structure.json",
+  "name": "CreateDBClusterResult",
+  "description": "CreateDBClusterResult schema from Amazon DocumentDB API",
+  "type": "object",
+  "properties": {
+    "DBCluster": {
+      "$ref": "#/components/schemas/DBCluster"
+    }
+  }
+}

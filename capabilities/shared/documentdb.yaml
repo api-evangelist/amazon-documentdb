@@ -1,0 +1,172 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon DocumentDB"
+  description: "Amazon DocumentDB fully managed document database service."
+  tags:
+    - Amazon DocumentDB
+    - AWS
+    - Database
+    - NoSQL
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: documentdb
+      baseUri: https://rds.amazonaws.com
+      description: "Amazon DocumentDB fully managed document database service."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 Credential={{env.AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: root
+          path: /
+          description: "Operations for root resources."
+          operations:
+            - name: describeDBClusters
+              method: GET
+              description: "Amazon DocumentDB Describe DB Clusters"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+                - name: DBClusterIdentifier
+                  in: query
+                  type: string
+                  required: false
+                  description: "The identifier of the cluster to describe."
+                - name: MaxRecords
+                  in: query
+                  type: integer
+                  required: false
+                  description: "The maximum number of records to include in the response."
+                - name: Marker
+                  in: query
+                  type: string
+                  required: false
+                  description: "An optional pagination token provided by a previous request."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: createDBCluster
+              method: POST
+              description: "Amazon DocumentDB Create DB Cluster"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #DeleteDBCluster
+          path: /#DeleteDBCluster
+          description: "Operations for #DeleteDBCluster resources."
+          operations:
+            - name: deleteDBCluster
+              method: POST
+              description: "Amazon DocumentDB Delete DB Cluster"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #CreateDBInstance
+          path: /#CreateDBInstance
+          description: "Operations for #CreateDBInstance resources."
+          operations:
+            - name: createDBInstance
+              method: POST
+              description: "Amazon DocumentDB Create DB Instance"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: #DescribeDBInstances
+          path: /#DescribeDBInstances
+          description: "Operations for #DescribeDBInstances resources."
+          operations:
+            - name: describeDBInstances
+              method: GET
+              description: "Amazon DocumentDB Describe DB Instances"
+              inputParameters:
+                - name: Action
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Action parameter"
+                - name: Version
+                  in: query
+                  type: string
+                  required: true
+                  description: "The Version parameter"
+                - name: DBInstanceIdentifier
+                  in: query
+                  type: string
+                  required: false
+                  description: "The identifier of the DB instance to describe."
+                - name: MaxRecords
+                  in: query
+                  type: integer
+                  required: false
+                  description: "The maximum number of records to include in the response."
+                - name: Marker
+                  in: query
+                  type: string
+                  required: false
+                  description: "An optional pagination token provided by a previous request."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

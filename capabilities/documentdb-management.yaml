@@ -1,0 +1,137 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon DocumentDB Document Database Management"
+  description: "Unified capability for managing DocumentDB clusters, instances, and snapshots for DevOps and database administrators."
+  tags:
+    - Amazon DocumentDB
+    - AWS
+    - Database
+    - NoSQL
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+
+capability:
+  consumes:
+    - import: documentdb
+      location: ./shared/documentdb.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: documentdb-api
+      description: "Unified REST API for Document Database Management."
+      resources:
+        - path: /v1/resource
+          name: describeDBClusters
+          description: "Amazon DocumentDB Describe DB Clusters"
+          operations:
+            - method: GET
+              name: describeDBClusters
+              description: "Amazon DocumentDB Describe DB Clusters"
+              call: "documentdb.describeDBClusters"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resource
+          name: createDBCluster
+          description: "Amazon DocumentDB Create DB Cluster"
+          operations:
+            - method: POST
+              name: createDBCluster
+              description: "Amazon DocumentDB Create DB Cluster"
+              call: "documentdb.createDBCluster"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#DeleteDBCluster
+          name: deleteDBCluster
+          description: "Amazon DocumentDB Delete DB Cluster"
+          operations:
+            - method: POST
+              name: deleteDBCluster
+              description: "Amazon DocumentDB Delete DB Cluster"
+              call: "documentdb.deleteDBCluster"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#CreateDBInstance
+          name: createDBInstance
+          description: "Amazon DocumentDB Create DB Instance"
+          operations:
+            - method: POST
+              name: createDBInstance
+              description: "Amazon DocumentDB Create DB Instance"
+              call: "documentdb.createDBInstance"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/#DescribeDBInstances
+          name: describeDBInstances
+          description: "Amazon DocumentDB Describe DB Instances"
+          operations:
+            - method: GET
+              name: describeDBInstances
+              description: "Amazon DocumentDB Describe DB Instances"
+              call: "documentdb.describeDBInstances"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: documentdb-mcp
+      transport: http
+      description: "MCP server for AI-assisted Document Database Management."
+      tools:
+        - name: describe-db-clusters
+          description: "Amazon DocumentDB Describe DB Clusters"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "documentdb.describeDBClusters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-db-cluster
+          description: "Amazon DocumentDB Create DB Cluster"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "documentdb.createDBCluster"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-db-cluster
+          description: "Amazon DocumentDB Delete DB Cluster"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "documentdb.deleteDBCluster"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-db-instance
+          description: "Amazon DocumentDB Create DB Instance"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "documentdb.createDBInstance"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: describe-db-instances
+          description: "Amazon DocumentDB Describe DB Instances"
+          hints:
+            readOnly: true
+            destructive: false
+          call: "documentdb.describeDBInstances"
+          outputParameters:
+            - type: object
+              mapping: "$."
