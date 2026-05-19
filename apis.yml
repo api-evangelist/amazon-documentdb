@@ -1,10 +1,11 @@
 name: Amazon DocumentDB
-description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set up, operate, and scale MongoDB-compatible databases in the cloud. DocumentDB 
-  is designed from the ground up to give you the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale.
+description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set
+  up, operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed from the ground up to give you
+  the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/documentdb/
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 tags:
 - Amazon Web Services
 - AWS
@@ -16,7 +17,8 @@ tags:
 - NoSQL
 apis:
 - name: Amazon DocumentDB API
-  description: API for managing Amazon DocumentDB clusters, instances, parameter groups, subnet groups, snapshots, and related resources.
+  description: API for managing Amazon DocumentDB clusters, instances, parameter groups, subnet groups, snapshots, and related
+    resources.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/documentdb/
   baseURL: https://rds.amazonaws.com
@@ -53,6 +55,14 @@ apis:
     url: json-structure/amazon-documentdb-dbcluster-structure.json
   - type: Example
     url: examples/amazon-documentdb-dbcluster-example.json
+  - type: NaftikoCapability
+    url: capabilities/amazon-documentdb-createdbinstance.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-documentdb-deletedbcluster.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-documentdb-describedbinstances.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-documentdb-general.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -93,7 +103,8 @@ common:
 - type: Features
   data:
   - name: Serverless Architecture
-    description: Automatically scales capacity up or down in fine-grained increments based on application demand, with up to 90% cost savings versus peak provisioning.
+    description: Automatically scales capacity up or down in fine-grained increments based on application demand, with up
+      to 90% cost savings versus peak provisioning.
   - name: MongoDB Compatibility
     description: Migrate applications typically without code changes or downtime using existing MongoDB drivers and tools.
   - name: Global Clusters
@@ -138,20 +149,18 @@ common:
   url: rules/amazon-documentdb-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-documentdb-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/documentdb-management.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 maintainer:
   name: Kin Lane
   email: kin@apievangelist.com
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
