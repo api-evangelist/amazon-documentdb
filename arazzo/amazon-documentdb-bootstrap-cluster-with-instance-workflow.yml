@@ -1,0 +1,170 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Bootstrap Cluster with Primary Instance
+  summary: Create a cluster, wait until available, then add and await a primary instance.
+  description: >-
+    Stands up a usable Amazon DocumentDB deployment from nothing by chaining the
+    four real provisioning operations: create the cluster, poll until the
+    cluster is available, create a primary instance inside it, and poll until the
+    instance is available. The workflow uses the AWS query protocol, supplying
+    the Action and Version in the query string and the resource parameters as a
+    form-urlencoded request body, and spells out each request inline so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: bootstrap-cluster-with-instance
+  summary: Provision a cluster and its first instance end to end.
+  description: >-
+    Creates a cluster, waits for it to become available, then creates a primary
+    instance inside it and waits for that instance to become available.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    - MasterUsername
+    - MasterUserPassword
+    - DBInstanceIdentifier
+    - DBInstanceClass
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier to assign to the new DB cluster.
+      MasterUsername:
+        type: string
+        description: The master user name for the cluster.
+      MasterUserPassword:
+        type: string
+        description: The master user password for the cluster.
+      DBInstanceIdentifier:
+        type: string
+        description: The identifier to assign to the new primary instance.
+      DBInstanceClass:
+        type: string
+        description: The compute and memory capacity of the instance.
+      Engine:
+        type: string
+        description: The database engine for the cluster and instance.
+        default: docdb
+  steps:
+  - stepId: createCluster
+    description: Create the DB cluster with the supplied identifier and master credentials.
+    operationId: createDBCluster
+    parameters:
+    - name: Action
+      in: query
+      value: CreateDBCluster
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+        Engine: $inputs.Engine
+        MasterUsername: $inputs.MasterUsername
+        MasterUserPassword: $inputs.MasterUserPassword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      createdCluster: $response.body#/DBCluster
+  - stepId: pollCluster
+    description: >-
+      Poll the cluster status, looping back here until the cluster reports
+      available before any instance is created.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clusterStatus: $response.body#/DBClusters/0/Status
+    onSuccess:
+    - name: clusterReady
+      type: goto
+      stepId: createInstance
+      criteria:
+      - context: $response.body
+        condition: $.DBClusters[0].Status == "available"
+        type: jsonpath
+    - name: clusterCreating
+      type: goto
+      stepId: pollCluster
+      criteria:
+      - context: $response.body
+        condition: $.DBClusters[0].Status != "available"
+        type: jsonpath
+  - stepId: createInstance
+    description: Create the primary instance inside the now-available cluster.
+    operationId: createDBInstance
+    parameters:
+    - name: Action
+      in: query
+      value: CreateDBInstance
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+        DBInstanceClass: $inputs.DBInstanceClass
+        Engine: $inputs.Engine
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollInstance
+    description: >-
+      Poll the instance status, looping back here until the instance reports
+      available.
+    operationId: describeDBInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBInstances
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.DBInstanceIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceStatus: $response.body#/DBInstances/0/DBInstanceStatus
+    onSuccess:
+    - name: instanceAvailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus == "available"
+        type: jsonpath
+    - name: instanceCreating
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus != "available"
+        type: jsonpath
+  outputs:
+    DBClusterIdentifier: $inputs.DBClusterIdentifier
+    DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+    clusterStatus: $steps.pollCluster.outputs.clusterStatus
+    instanceStatus: $steps.pollInstance.outputs.instanceStatus

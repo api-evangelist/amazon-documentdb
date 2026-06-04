@@ -1,0 +1,102 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Inventory Cluster and Instances
+  summary: Describe a cluster, then describe a member instance and the wider instance fleet.
+  description: >-
+    Builds a read-only inventory of an Amazon DocumentDB deployment by describing
+    a named cluster, picking the first instance listed in its membership, and
+    describing that instance in detail, then listing the broader instance fleet.
+    The workflow uses the AWS query protocol, supplying the Action and Version in
+    the query string, and spells out each request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: inventory-cluster-and-instances
+  summary: Read a cluster and the details of its first member instance.
+  description: >-
+    Describes the cluster to read its membership, resolves the first member
+    instance identifier, describes that instance, and then lists instances to
+    surface the wider fleet.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier of the cluster to inventory.
+      MaxRecords:
+        type: integer
+        description: The maximum number of instance records to list.
+        default: 100
+  steps:
+  - stepId: describeCluster
+    description: Describe the cluster to read its status, endpoint and member list.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/DBClusters/0/Status
+      endpoint: $response.body#/DBClusters/0/Endpoint
+      firstMemberInstanceId: $response.body#/DBClusters/0/DBClusterMembers/0/DBInstanceIdentifier
+  - stepId: describeMemberInstance
+    description: >-
+      Describe the first member instance resolved from the cluster membership to
+      read its detailed status.
+    operationId: describeDBInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBInstances
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBInstanceIdentifier
+      in: query
+      value: $steps.describeCluster.outputs.firstMemberInstanceId
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceStatus: $response.body#/DBInstances/0/DBInstanceStatus
+  - stepId: listInstances
+    description: List the wider instance fleet to round out the inventory.
+    operationId: describeDBInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBInstances
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: MaxRecords
+      in: query
+      value: $inputs.MaxRecords
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      marker: $response.body#/Marker
+  outputs:
+    DBClusterIdentifier: $inputs.DBClusterIdentifier
+    clusterStatus: $steps.describeCluster.outputs.status
+    clusterEndpoint: $steps.describeCluster.outputs.endpoint
+    memberInstanceStatus: $steps.describeMemberInstance.outputs.instanceStatus

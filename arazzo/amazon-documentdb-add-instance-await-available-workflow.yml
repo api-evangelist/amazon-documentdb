@@ -1,0 +1,131 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Add Instance and Await Available
+  summary: Add an instance to an existing cluster and poll until the instance is available.
+  description: >-
+    Adds a new compute instance to an existing Amazon DocumentDB cluster and
+    then polls the instance description endpoint until the instance leaves the
+    creating state and reports an available status. The workflow uses the AWS
+    query protocol, supplying the Action and Version in the query string and the
+    instance parameters as a form-urlencoded request body, and spells out each
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: add-instance-await-available
+  summary: Add an instance to a cluster and wait until it is available.
+  description: >-
+    Confirms the target cluster exists, creates a new instance within it, and
+    then repeatedly describes the instance and branches back to the poll step
+    until the reported status is available.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    - DBInstanceIdentifier
+    - DBInstanceClass
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier of the cluster the instance is added to.
+      DBInstanceIdentifier:
+        type: string
+        description: The identifier to assign to the new DB instance.
+      DBInstanceClass:
+        type: string
+        description: The compute and memory capacity of the instance.
+      Engine:
+        type: string
+        description: The database engine for the instance.
+        default: docdb
+      AvailabilityZone:
+        type: string
+        description: The Availability Zone in which the instance is created.
+  steps:
+  - stepId: confirmCluster
+    description: >-
+      Confirm the target cluster exists and is available before adding an
+      instance to it.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clusterStatus: $response.body#/DBClusters/0/Status
+  - stepId: createInstance
+    description: >-
+      Create the DB instance inside the target cluster using the AWS query
+      protocol with the instance identifier and class in the form body.
+    operationId: createDBInstance
+    parameters:
+    - name: Action
+      in: query
+      value: CreateDBInstance
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+        DBInstanceClass: $inputs.DBInstanceClass
+        Engine: $inputs.Engine
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+        AvailabilityZone: $inputs.AvailabilityZone
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollInstance
+    description: >-
+      Describe the instance and capture its status. Branch back to this step
+      while the instance is still being created, and end when it is available.
+    operationId: describeDBInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBInstances
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.DBInstanceIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/DBInstances/0/DBInstanceStatus
+    onSuccess:
+    - name: instanceAvailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus == "available"
+        type: jsonpath
+    - name: stillCreating
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus != "available"
+        type: jsonpath
+  outputs:
+    DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+    status: $steps.pollInstance.outputs.status

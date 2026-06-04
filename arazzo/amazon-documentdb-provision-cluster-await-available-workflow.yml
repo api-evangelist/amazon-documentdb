@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Provision Cluster and Await Available
+  summary: Create a DocumentDB cluster and poll until it reports the available status.
+  description: >-
+    Provisions a new Amazon DocumentDB cluster and then polls the cluster
+    description endpoint until the cluster transitions out of the creating
+    state and reports an available status. The workflow uses the AWS query
+    protocol, supplying the Action and Version in the query string and the
+    cluster parameters as a form-urlencoded request body, and spells out each
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-cluster-await-available
+  summary: Create a DocumentDB cluster and wait until it is available.
+  description: >-
+    Creates a cluster with the supplied identifier, engine and master
+    credentials, then repeatedly describes the cluster and branches back to the
+    poll step until the reported status is available.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    - MasterUsername
+    - MasterUserPassword
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier to assign to the new DB cluster.
+      Engine:
+        type: string
+        description: The database engine for the cluster.
+        default: docdb
+      MasterUsername:
+        type: string
+        description: The master user name for the cluster.
+      MasterUserPassword:
+        type: string
+        description: The master user password for the cluster.
+      StorageEncrypted:
+        type: boolean
+        description: Whether the cluster storage is encrypted.
+        default: true
+      BackupRetentionPeriod:
+        type: integer
+        description: The number of days automated backups are retained.
+        default: 1
+  steps:
+  - stepId: createCluster
+    description: >-
+      Create the DB cluster using the AWS query protocol with the cluster
+      identifier, engine and master credentials in the form body.
+    operationId: createDBCluster
+    parameters:
+    - name: Action
+      in: query
+      value: CreateDBCluster
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+        Engine: $inputs.Engine
+        MasterUsername: $inputs.MasterUsername
+        MasterUserPassword: $inputs.MasterUserPassword
+        StorageEncrypted: $inputs.StorageEncrypted
+        BackupRetentionPeriod: $inputs.BackupRetentionPeriod
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      createdCluster: $response.body#/DBCluster
+  - stepId: pollCluster
+    description: >-
+      Describe the cluster and capture its status. Branch back to this step
+      while the cluster is still being created, and end when it is available.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/DBClusters/0/Status
+      endpoint: $response.body#/DBClusters/0/Endpoint
+    onSuccess:
+    - name: clusterAvailable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.DBClusters[0].Status == "available"
+        type: jsonpath
+    - name: stillCreating
+      type: goto
+      stepId: pollCluster
+      criteria:
+      - context: $response.body
+        condition: $.DBClusters[0].Status != "available"
+        type: jsonpath
+  outputs:
+    DBClusterIdentifier: $inputs.DBClusterIdentifier
+    status: $steps.pollCluster.outputs.status
+    endpoint: $steps.pollCluster.outputs.endpoint

@@ -64,6 +64,27 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-documentdb-general.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-documentdb-add-instance-await-available-workflow.yml
+    name: Amazon DocumentDB Add Instance and Await Available
+    summary: Add an instance to an existing cluster and poll until the instance is available.
+  - url: arazzo/amazon-documentdb-bootstrap-cluster-with-instance-workflow.yml
+    name: Amazon DocumentDB Bootstrap Cluster with Primary Instance
+    summary: Create a cluster, wait until available, then add and await a primary instance.
+  - url: arazzo/amazon-documentdb-decommission-cluster-with-final-snapshot-workflow.yml
+    name: Amazon DocumentDB Decommission Cluster with Final Snapshot
+    summary: Verify a cluster exists, delete it with a final snapshot, then poll until it is gone.
+  - url: arazzo/amazon-documentdb-inventory-cluster-and-instances-workflow.yml
+    name: Amazon DocumentDB Inventory Cluster and Instances
+    summary: Describe a cluster, then describe a member instance and the wider instance fleet.
+  - url: arazzo/amazon-documentdb-provision-cluster-await-available-workflow.yml
+    name: Amazon DocumentDB Provision Cluster and Await Available
+    summary: Create a DocumentDB cluster and poll until it reports the available status.
+  - url: arazzo/amazon-documentdb-scale-out-read-replica-workflow.yml
+    name: Amazon DocumentDB Scale Out Read Replica
+    summary: Add a replica instance to a cluster, wait for it, then confirm cluster membership.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

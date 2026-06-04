@@ -1,0 +1,133 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Scale Out Read Replica
+  summary: Add a replica instance to a cluster, wait for it, then confirm cluster membership.
+  description: >-
+    Scales out an existing Amazon DocumentDB cluster by adding a new replica
+    instance, polling until that instance is available, and then re-describing
+    the cluster to confirm the new instance has joined the cluster membership.
+    The workflow uses the AWS query protocol, supplying the Action and Version in
+    the query string and the instance parameters as a form-urlencoded request
+    body, and spells out each request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: scale-out-read-replica
+  summary: Add a replica instance and confirm it joins the cluster.
+  description: >-
+    Creates a replica instance in the target cluster, polls until it is
+    available, then describes the cluster to confirm the new member is present.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    - DBInstanceIdentifier
+    - DBInstanceClass
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier of the cluster to scale out.
+      DBInstanceIdentifier:
+        type: string
+        description: The identifier to assign to the new replica instance.
+      DBInstanceClass:
+        type: string
+        description: The compute and memory capacity of the replica instance.
+      Engine:
+        type: string
+        description: The database engine for the instance.
+        default: docdb
+      AutoMinorVersionUpgrade:
+        type: boolean
+        description: Whether minor engine upgrades are applied automatically.
+        default: true
+  steps:
+  - stepId: createReplica
+    description: Create the replica instance within the target cluster.
+    operationId: createDBInstance
+    parameters:
+    - name: Action
+      in: query
+      value: CreateDBInstance
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+        DBInstanceClass: $inputs.DBInstanceClass
+        Engine: $inputs.Engine
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+        AutoMinorVersionUpgrade: $inputs.AutoMinorVersionUpgrade
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollReplica
+    description: >-
+      Poll the replica instance status, looping back here until it reports
+      available.
+    operationId: describeDBInstances
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBInstances
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.DBInstanceIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceStatus: $response.body#/DBInstances/0/DBInstanceStatus
+    onSuccess:
+    - name: replicaReady
+      type: goto
+      stepId: confirmMembership
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus == "available"
+        type: jsonpath
+    - name: replicaCreating
+      type: goto
+      stepId: pollReplica
+      criteria:
+      - context: $response.body
+        condition: $.DBInstances[0].DBInstanceStatus != "available"
+        type: jsonpath
+  - stepId: confirmMembership
+    description: >-
+      Describe the cluster again to confirm it is available and now reports the
+      new replica among its members.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clusterStatus: $response.body#/DBClusters/0/Status
+      members: $response.body#/DBClusters/0/DBClusterMembers
+  outputs:
+    DBClusterIdentifier: $inputs.DBClusterIdentifier
+    DBInstanceIdentifier: $inputs.DBInstanceIdentifier
+    clusterStatus: $steps.confirmMembership.outputs.clusterStatus
+    replicaStatus: $steps.pollReplica.outputs.instanceStatus

@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Amazon DocumentDB Decommission Cluster with Final Snapshot
+  summary: Verify a cluster exists, delete it with a final snapshot, then poll until it is gone.
+  description: >-
+    Safely retires an Amazon DocumentDB cluster by first confirming it exists,
+    then deleting it while requesting a final cluster snapshot, and finally
+    polling the describe endpoint until the cluster can no longer be found. The
+    workflow uses the AWS query protocol, supplying the Action and Version in the
+    query string and the delete parameters as a form-urlencoded request body, and
+    spells out each request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: docdbApi
+  url: ../openapi/amazon-documentdb-openapi.yml
+  type: openapi
+workflows:
+- workflowId: decommission-cluster-with-final-snapshot
+  summary: Delete a cluster with a final snapshot and confirm removal.
+  description: >-
+    Confirms the cluster exists, deletes it with SkipFinalSnapshot set to false
+    and a final snapshot identifier, then polls until the describe call reports
+    the cluster is no longer present.
+  inputs:
+    type: object
+    required:
+    - DBClusterIdentifier
+    - FinalDBSnapshotIdentifier
+    properties:
+      DBClusterIdentifier:
+        type: string
+        description: The identifier of the cluster to delete.
+      FinalDBSnapshotIdentifier:
+        type: string
+        description: The identifier for the final snapshot taken before deletion.
+  steps:
+  - stepId: confirmCluster
+    description: Confirm the cluster exists and capture its current status before deleting.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      currentStatus: $response.body#/DBClusters/0/Status
+  - stepId: deleteCluster
+    description: >-
+      Delete the cluster, requesting a final snapshot by setting SkipFinalSnapshot
+      to false and providing a final snapshot identifier.
+    operationId: deleteDBCluster
+    parameters:
+    - name: Action
+      in: query
+      value: DeleteDBCluster
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        DBClusterIdentifier: $inputs.DBClusterIdentifier
+        SkipFinalSnapshot: false
+        FinalDBSnapshotIdentifier: $inputs.FinalDBSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollUntilGone
+    description: >-
+      Describe the cluster repeatedly. While it is still returned and reports a
+      deleting status, loop back here; when the describe call returns 404 the
+      cluster has been fully removed.
+    operationId: describeDBClusters
+    parameters:
+    - name: Action
+      in: query
+      value: DescribeDBClusters
+    - name: Version
+      in: query
+      value: '2014-10-31'
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.DBClusterIdentifier
+    - name: MaxRecords
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    outputs:
+      statusCode: $statusCode
+    onSuccess:
+    - name: clusterGone
+      type: end
+      criteria:
+      - condition: $statusCode == 404
+    - name: stillDeleting
+      type: goto
+      stepId: pollUntilGone
+      criteria:
+      - condition: $statusCode == 200
+  outputs:
+    DBClusterIdentifier: $inputs.DBClusterIdentifier
+    finalStatusCode: $steps.pollUntilGone.outputs.statusCode
