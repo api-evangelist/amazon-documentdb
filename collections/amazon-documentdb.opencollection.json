@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon DocumentDB API",
+    "version": "2014-10-31"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Describe DB Clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeDBClusters",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "DBClusterIdentifier",
+                "value": "example-cluster-01",
+                "type": "query",
+                "description": "The identifier of the cluster to describe."
+              },
+              {
+                "name": "MaxRecords",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of records to include in the response."
+              },
+              {
+                "name": "Marker",
+                "value": "example-string",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request."
+              }
+            ]
+          },
+          "docs": "Returns information about provisioned Amazon DocumentDB clusters."
+        },
+        {
+          "info": {
+            "name": "Amazon DocumentDB Create DB Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rds.amazonaws.com/",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateDBCluster",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DBClusterIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "Engine",
+                  "value": ""
+                },
+                {
+                  "name": "MasterUsername",
+                  "value": ""
+                },
+                {
+                  "name": "MasterUserPassword",
+                  "value": ""
+                },
+                {
+                  "name": "DBSubnetGroupName",
+                  "value": ""
+                },
+                {
+                  "name": "VpcSecurityGroupIds",
+                  "value": ""
+                },
+                {
+                  "name": "EngineVersion",
+                  "value": ""
+                },
+                {
+                  "name": "Port",
+                  "value": ""
+                },
+                {
+                  "name": "StorageEncrypted",
+                  "value": ""
+                },
+                {
+                  "name": "BackupRetentionPeriod",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a new Amazon DocumentDB cluster. A cluster consists of one or more instances that are connected to a shared storage volume."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#DeleteDBCluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Delete DB Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rds.amazonaws.com/#DeleteDBCluster",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DeleteDBCluster",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DBClusterIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "SkipFinalSnapshot",
+                  "value": ""
+                },
+                {
+                  "name": "FinalDBSnapshotIdentifier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#CreateDBInstance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Create DB Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rds.amazonaws.com/#CreateDBInstance",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateDBInstance",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DBInstanceIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "DBInstanceClass",
+                  "value": ""
+                },
+                {
+                  "name": "Engine",
+                  "value": ""
+                },
+                {
+                  "name": "DBClusterIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "AvailabilityZone",
+                  "value": ""
+                },
+                {
+                  "name": "AutoMinorVersionUpgrade",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a new DB instance within a DocumentDB cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "#DescribeDBInstances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Describe DB Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.amazonaws.com/#DescribeDBInstances",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeDBInstances",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "i-0abc123def456789",
+                "type": "query",
+                "description": "The identifier of the DB instance to describe."
+              },
+              {
+                "name": "MaxRecords",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of records to include in the response."
+              },
+              {
+                "name": "Marker",
+                "value": "example-string",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request."
+              }
+            ]
+          },
+          "docs": "Returns information about provisioned Amazon DocumentDB instances."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

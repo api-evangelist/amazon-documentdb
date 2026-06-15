@@ -1,0 +1,1153 @@
+{
+  "info": {
+    "_postman_id": "7eb3d030-858a-4029-af71-474431604174",
+    "name": "Amazon DocumentDB API",
+    "description": "Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:02:59.000Z",
+    "updatedAt": "2026-06-05T15:02:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7eb3d030-858a-4029-af71-474431604174"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Amazon DocumentDB Create DB Cluster",
+          "id": "a9e85f27-bbf9-45d7-baa1-3527ece8b42a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The DB cluster identifier.",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the database engine to be used for this DB cluster.",
+                  "key": "Engine",
+                  "value": "docdb"
+                },
+                {
+                  "description": "(Required) The name of the master user for the DB cluster.",
+                  "key": "MasterUsername",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The password for the master database user.",
+                  "key": "MasterUserPassword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A DB subnet group to associate with this DB cluster.",
+                  "key": "DBSubnetGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                  "key": "VpcSecurityGroupIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                  "key": "VpcSecurityGroupIds",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The version number of the database engine to use.",
+                  "key": "EngineVersion",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The port number on which the instances in the DB cluster accept connections.",
+                  "key": "Port",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specifies whether the DB cluster is encrypted.",
+                  "key": "StorageEncrypted",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The number of days for which automated backups are retained.",
+                  "key": "BackupRetentionPeriod",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateDBCluster&Version=2014-10-31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateDBCluster"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2014-10-31"
+                }
+              ]
+            },
+            "description": "Creates a new Amazon DocumentDB cluster. A cluster consists of one or more instances that are connected to a shared storage volume."
+          },
+          "response": [
+            {
+              "id": "84aaac0d-de6a-4731-b986-e4a9443a6dcd",
+              "name": "Successful response with the created DB cluster details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB cluster identifier.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the database engine to be used for this DB cluster.",
+                      "key": "Engine",
+                      "value": "docdb"
+                    },
+                    {
+                      "description": "(Required) The name of the master user for the DB cluster.",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The password for the master database user.",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster.",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                      "key": "VpcSecurityGroupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                      "key": "VpcSecurityGroupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use.",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections.",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies whether the DB cluster is encrypted.",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained.",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateDBCluster&Version=2014-10-31",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateDBCluster"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <DBCluster>\n    <DBClusterIdentifier>(string)</DBClusterIdentifier>\n    <DBClusterArn>(string)</DBClusterArn>\n    <Status>(string)</Status>\n    <Engine>(string)</Engine>\n    <EngineVersion>(string)</EngineVersion>\n    <Endpoint>(string)</Endpoint>\n    <ReaderEndpoint>(string)</ReaderEndpoint>\n    <Port>(integer)</Port>\n    <MasterUsername>(string)</MasterUsername>\n    <DBSubnetGroup>(string)</DBSubnetGroup>\n    <StorageEncrypted>(boolean)</StorageEncrypted>\n    <BackupRetentionPeriod>(integer)</BackupRetentionPeriod>\n    <ClusterCreateTime>(string)</ClusterCreateTime>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n  </DBCluster>\n</element>",
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-84aaac0d-de6a-4731-b986-e4a9443a6dcd"
+            },
+            {
+              "id": "8faa7bcd-dd66-48af-975d-73d3fb965251",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB cluster identifier.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the database engine to be used for this DB cluster.",
+                      "key": "Engine",
+                      "value": "docdb"
+                    },
+                    {
+                      "description": "(Required) The name of the master user for the DB cluster.",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The password for the master database user.",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster.",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                      "key": "VpcSecurityGroupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
+                      "key": "VpcSecurityGroupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use.",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections.",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies whether the DB cluster is encrypted.",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained.",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateDBCluster&Version=2014-10-31",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateDBCluster"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-8faa7bcd-dd66-48af-975d-73d3fb965251"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:59.000Z",
+          "updatedAt": "2026-06-05T15:02:59.000Z",
+          "uid": "35240-a9e85f27-bbf9-45d7-baa1-3527ece8b42a"
+        },
+        {
+          "name": "Amazon DocumentDB Describe DB Clusters",
+          "id": "d6d66779-c75f-48fa-a52a-981290cb55cf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBClusters&Version=2014-10-31&DBClusterIdentifier=<string>&MaxRecords=<integer>&Marker=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeDBClusters"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2014-10-31"
+                },
+                {
+                  "description": "The identifier of the cluster to describe.",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of records to include in the response.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request.",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns information about provisioned Amazon DocumentDB clusters."
+          },
+          "response": [
+            {
+              "id": "8b044305-e5c6-4f29-b381-c9503bdc060c",
+              "name": "Successful response with DB cluster details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeDBClusters&Version=2014-10-31&DBClusterIdentifier=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeDBClusters"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    },
+                    {
+                      "description": "The identifier of the cluster to describe.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of records to include in the response.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request.",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <DBClusters>\n    <DBClusterIdentifier>(string)</DBClusterIdentifier>\n    <DBClusterArn>(string)</DBClusterArn>\n    <Status>(string)</Status>\n    <Engine>(string)</Engine>\n    <EngineVersion>(string)</EngineVersion>\n    <Endpoint>(string)</Endpoint>\n    <ReaderEndpoint>(string)</ReaderEndpoint>\n    <Port>(integer)</Port>\n    <MasterUsername>(string)</MasterUsername>\n    <DBSubnetGroup>(string)</DBSubnetGroup>\n    <StorageEncrypted>(boolean)</StorageEncrypted>\n    <BackupRetentionPeriod>(integer)</BackupRetentionPeriod>\n    <ClusterCreateTime>(string)</ClusterCreateTime>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n  </DBClusters>\n  <DBClusters>\n    <DBClusterIdentifier>(string)</DBClusterIdentifier>\n    <DBClusterArn>(string)</DBClusterArn>\n    <Status>(string)</Status>\n    <Engine>(string)</Engine>\n    <EngineVersion>(string)</EngineVersion>\n    <Endpoint>(string)</Endpoint>\n    <ReaderEndpoint>(string)</ReaderEndpoint>\n    <Port>(integer)</Port>\n    <MasterUsername>(string)</MasterUsername>\n    <DBSubnetGroup>(string)</DBSubnetGroup>\n    <StorageEncrypted>(boolean)</StorageEncrypted>\n    <BackupRetentionPeriod>(integer)</BackupRetentionPeriod>\n    <ClusterCreateTime>(string)</ClusterCreateTime>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n    <DBClusterMembers>\n      <DBInstanceIdentifier>(string)</DBInstanceIdentifier>\n      <IsClusterWriter>(boolean)</IsClusterWriter>\n    </DBClusterMembers>\n  </DBClusters>\n  <Marker>(string)</Marker>\n</element>",
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-8b044305-e5c6-4f29-b381-c9503bdc060c"
+            },
+            {
+              "id": "7ad0bba5-dce4-49a2-bcae-03d627806e44",
+              "name": "DB cluster not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeDBClusters&Version=2014-10-31&DBClusterIdentifier=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeDBClusters"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    },
+                    {
+                      "description": "The identifier of the cluster to describe.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of records to include in the response.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request.",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-7ad0bba5-dce4-49a2-bcae-03d627806e44"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:59.000Z",
+          "updatedAt": "2026-06-05T15:02:59.000Z",
+          "uid": "35240-d6d66779-c75f-48fa-a52a-981290cb55cf"
+        }
+      ],
+      "id": "d71e1119-6096-4887-b138-2abbcea518d0",
+      "createdAt": "2026-06-05T15:02:59.000Z",
+      "updatedAt": "2026-06-05T15:02:59.000Z",
+      "uid": "35240-d71e1119-6096-4887-b138-2abbcea518d0"
+    },
+    {
+      "name": "#DeleteDBCluster",
+      "item": [
+        {
+          "name": "Amazon DocumentDB Delete DB Cluster",
+          "id": "9016259a-103b-483a-9c8a-daaaea18464e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The DB cluster identifier for the DB cluster to be deleted.",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Determines whether a final DB cluster snapshot is created before the DB cluster is deleted.",
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.",
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteDBCluster&Version=2014-10-31#DeleteDBCluster",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DeleteDBCluster"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2014-10-31"
+                }
+              ],
+              "hash": "DeleteDBCluster"
+            },
+            "description": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered."
+          },
+          "response": [
+            {
+              "id": "3d44f59b-fa02-46b2-bee0-c9356961a4ac",
+              "name": "Successful response with the deleted DB cluster details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB cluster identifier for the DB cluster to be deleted.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Determines whether a final DB cluster snapshot is created before the DB cluster is deleted.",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteDBCluster&Version=2014-10-31#DeleteDBCluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteDBCluster"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ],
+                  "hash": "DeleteDBCluster"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-3d44f59b-fa02-46b2-bee0-c9356961a4ac"
+            },
+            {
+              "id": "c634a579-e9d3-4011-86f2-3c22ef93c51d",
+              "name": "DB cluster not found.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB cluster identifier for the DB cluster to be deleted.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Determines whether a final DB cluster snapshot is created before the DB cluster is deleted.",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteDBCluster&Version=2014-10-31#DeleteDBCluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteDBCluster"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ],
+                  "hash": "DeleteDBCluster"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-c634a579-e9d3-4011-86f2-3c22ef93c51d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:59.000Z",
+          "updatedAt": "2026-06-05T15:02:59.000Z",
+          "uid": "35240-9016259a-103b-483a-9c8a-daaaea18464e"
+        }
+      ],
+      "id": "97d30d1a-48ca-4771-8efe-61352cde4864",
+      "createdAt": "2026-06-05T15:02:59.000Z",
+      "updatedAt": "2026-06-05T15:02:59.000Z",
+      "uid": "35240-97d30d1a-48ca-4771-8efe-61352cde4864"
+    },
+    {
+      "name": "#CreateDBInstance",
+      "item": [
+        {
+          "name": "Amazon DocumentDB Create DB Instance",
+          "id": "c21cc4ac-0175-4bc6-9f38-de88b79cb3e9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) The DB instance identifier.",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The compute and memory capacity of the DB instance.",
+                  "key": "DBInstanceClass",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the database engine to be used for this instance.",
+                  "key": "Engine",
+                  "value": "docdb"
+                },
+                {
+                  "description": "(Required) The identifier of the DB cluster that the instance will belong to.",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The EC2 Availability Zone that the DB instance is created in.",
+                  "key": "AvailabilityZone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Indicates that minor engine upgrades are applied automatically during maintenance windows.",
+                  "key": "AutoMinorVersionUpgrade",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateDBInstance&Version=2014-10-31#CreateDBInstance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateDBInstance"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2014-10-31"
+                }
+              ],
+              "hash": "CreateDBInstance"
+            },
+            "description": "Creates a new DB instance within a DocumentDB cluster."
+          },
+          "response": [
+            {
+              "id": "b1321b41-c688-4d1c-8d10-d4b2d6bd1ce3",
+              "name": "Successful response with the created DB instance details.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB instance identifier.",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance.",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the database engine to be used for this instance.",
+                      "key": "Engine",
+                      "value": "docdb"
+                    },
+                    {
+                      "description": "(Required) The identifier of the DB cluster that the instance will belong to.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The EC2 Availability Zone that the DB instance is created in.",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates that minor engine upgrades are applied automatically during maintenance windows.",
+                      "key": "AutoMinorVersionUpgrade",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateDBInstance&Version=2014-10-31#CreateDBInstance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateDBInstance"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ],
+                  "hash": "CreateDBInstance"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-b1321b41-c688-4d1c-8d10-d4b2d6bd1ce3"
+            },
+            {
+              "id": "ff8d89a3-2a81-4245-9b5b-e34bc011653d",
+              "name": "Bad request error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The DB instance identifier.",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance.",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the database engine to be used for this instance.",
+                      "key": "Engine",
+                      "value": "docdb"
+                    },
+                    {
+                      "description": "(Required) The identifier of the DB cluster that the instance will belong to.",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The EC2 Availability Zone that the DB instance is created in.",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates that minor engine upgrades are applied automatically during maintenance windows.",
+                      "key": "AutoMinorVersionUpgrade",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateDBInstance&Version=2014-10-31#CreateDBInstance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateDBInstance"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    }
+                  ],
+                  "hash": "CreateDBInstance"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-ff8d89a3-2a81-4245-9b5b-e34bc011653d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:59.000Z",
+          "updatedAt": "2026-06-05T15:02:59.000Z",
+          "uid": "35240-c21cc4ac-0175-4bc6-9f38-de88b79cb3e9"
+        }
+      ],
+      "id": "0b52c93d-9db2-4c16-afd3-9f0e089bf4a2",
+      "createdAt": "2026-06-05T15:02:59.000Z",
+      "updatedAt": "2026-06-05T15:02:59.000Z",
+      "uid": "35240-0b52c93d-9db2-4c16-afd3-9f0e089bf4a2"
+    },
+    {
+      "name": "#DescribeDBInstances",
+      "item": [
+        {
+          "name": "Amazon DocumentDB Describe DB Instances",
+          "id": "3467a333-c79f-42a5-a4d9-2afbc1905d8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBInstances&Version=2014-10-31&DBInstanceIdentifier=<string>&MaxRecords=<integer>&Marker=<string>#DescribeDBInstances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeDBInstances"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2014-10-31"
+                },
+                {
+                  "description": "The identifier of the DB instance to describe.",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of records to include in the response.",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request.",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ],
+              "hash": "DescribeDBInstances"
+            },
+            "description": "Returns information about provisioned Amazon DocumentDB instances."
+          },
+          "response": [
+            {
+              "id": "4efad7c7-ba95-4aac-901e-857dbe732370",
+              "name": "Successful response with DB instance details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeDBInstances&Version=2014-10-31&DBInstanceIdentifier=<string>&MaxRecords=<integer>&Marker=<string>#DescribeDBInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeDBInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    },
+                    {
+                      "description": "The identifier of the DB instance to describe.",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of records to include in the response.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request.",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "DescribeDBInstances"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-4efad7c7-ba95-4aac-901e-857dbe732370"
+            },
+            {
+              "id": "2f853622-dc19-450e-b055-562d86d1cf88",
+              "name": "DB instance not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeDBInstances&Version=2014-10-31&DBInstanceIdentifier=<string>&MaxRecords=<integer>&Marker=<string>#DescribeDBInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeDBInstances"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2014-10-31"
+                    },
+                    {
+                      "description": "The identifier of the DB instance to describe.",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of records to include in the response.",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request.",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "hash": "DescribeDBInstances"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:59.000Z",
+              "updatedAt": "2026-06-05T15:02:59.000Z",
+              "uid": "35240-2f853622-dc19-450e-b055-562d86d1cf88"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:59.000Z",
+          "updatedAt": "2026-06-05T15:02:59.000Z",
+          "uid": "35240-3467a333-c79f-42a5-a4d9-2afbc1905d8e"
+        }
+      ],
+      "id": "4de5b9d0-8e43-4cc6-b65c-82d0e2000c1d",
+      "createdAt": "2026-06-05T15:02:59.000Z",
+      "updatedAt": "2026-06-05T15:02:59.000Z",
+      "uid": "35240-4de5b9d0-8e43-4cc6-b65c-82d0e2000c1d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://rds.amazonaws.com"
+    }
+  ]
+}
