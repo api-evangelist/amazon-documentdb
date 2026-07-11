@@ -58,6 +58,14 @@ apis:
       - type: Examples
         url: examples/amazon-documentdb-dbcluster-example.json
 common:
+  - type: TrustCenter
+    url: security/amazon-documentdb-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-documentdb-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-documentdb-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-documentdb-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-documentdb/overview
   - type: Arazzo
