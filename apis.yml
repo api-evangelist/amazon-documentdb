@@ -58,6 +58,8 @@ apis:
       - type: Examples
         url: examples/amazon-documentdb-dbcluster-example.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-documentdb-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-documentdb-trust-center.yml
   - type: VulnerabilityDisclosure
