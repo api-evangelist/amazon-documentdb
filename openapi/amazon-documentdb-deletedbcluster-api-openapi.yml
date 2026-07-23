@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon DocumentDB Amazon DocumentDB API #DeleteDBCluster API'
+  description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.
+  version: '2014-10-31'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/documentdb/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://rds.amazonaws.com
+  description: Amazon DocumentDB API endpoint
+tags:
+- name: '#DeleteDBCluster'
+paths:
+  /#DeleteDBCluster:
+    post:
+      operationId: deleteDBCluster
+      summary: Amazon DocumentDB Delete DB Cluster
+      description: Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteDBCluster
+        example: DeleteDBCluster
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2014-10-31'
+        example: 5.0.0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - DBClusterIdentifier
+              properties:
+                DBClusterIdentifier:
+                  type: string
+                  description: The DB cluster identifier for the DB cluster to be deleted.
+                SkipFinalSnapshot:
+                  type: boolean
+                  description: Determines whether a final DB cluster snapshot is created before the DB cluster is deleted.
+                FinalDBSnapshotIdentifier:
+                  type: string
+                  description: The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.
+            examples:
+              deleteDBClusterRequestExample:
+                summary: Default deleteDBCluster request
+                x-microcks-default: true
+                value: {}
+      responses:
+        '200':
+          description: Successful response with the deleted DB cluster details.
+        '404':
+          description: DB cluster not found.
+      tags:
+      - '#DeleteDBCluster'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.

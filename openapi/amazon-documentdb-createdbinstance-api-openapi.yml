@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon DocumentDB Amazon DocumentDB API #CreateDBInstance API'
+  description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.
+  version: '2014-10-31'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/documentdb/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://rds.amazonaws.com
+  description: Amazon DocumentDB API endpoint
+tags:
+- name: '#CreateDBInstance'
+paths:
+  /#CreateDBInstance:
+    post:
+      operationId: createDBInstance
+      summary: Amazon DocumentDB Create DB Instance
+      description: Creates a new DB instance within a DocumentDB cluster.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateDBInstance
+        example: CreateDBInstance
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2014-10-31'
+        example: 5.0.0
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - DBInstanceIdentifier
+              - DBInstanceClass
+              - Engine
+              - DBClusterIdentifier
+              properties:
+                DBInstanceIdentifier:
+                  type: string
+                  description: The DB instance identifier.
+                DBInstanceClass:
+                  type: string
+                  description: The compute and memory capacity of the DB instance.
+                Engine:
+                  type: string
+                  description: The name of the database engine to be used for this instance.
+                  default: docdb
+                DBClusterIdentifier:
+                  type: string
+                  description: The identifier of the DB cluster that the instance will belong to.
+                AvailabilityZone:
+                  type: string
+                  description: The EC2 Availability Zone that the DB instance is created in.
+                AutoMinorVersionUpgrade:
+                  type: boolean
+                  description: Indicates that minor engine upgrades are applied automatically during maintenance windows.
+            examples:
+              createDBInstanceRequestExample:
+                summary: Default createDBInstance request
+                x-microcks-default: true
+                value: {}
+      responses:
+        '200':
+          description: Successful response with the created DB instance details.
+        '400':
+          description: Bad request error.
+      tags:
+      - '#CreateDBInstance'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.

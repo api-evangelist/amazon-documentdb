@@ -1,8 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Amazon DocumentDB API
-  description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB 
-    workloads at scale.
+  title: Amazon DocumentDB Amazon DocumentDB API API
+  description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.
   version: '2014-10-31'
   contact:
     name: Kin Lane
@@ -14,6 +13,8 @@ info:
 servers:
 - url: https://rds.amazonaws.com
   description: Amazon DocumentDB API endpoint
+tags:
+- name: Amazon DocumentDB API
 paths:
   /:
     post:
@@ -103,6 +104,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      tags:
+      - Amazon DocumentDB API
     get:
       operationId: describeDBClusters
       summary: Amazon DocumentDB Describe DB Clusters
@@ -161,181 +164,10 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  /#DeleteDBCluster:
-    post:
-      operationId: deleteDBCluster
-      summary: Amazon DocumentDB Delete DB Cluster
-      description: Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - DeleteDBCluster
-        example: DeleteDBCluster
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2014-10-31'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - DBClusterIdentifier
-              properties:
-                DBClusterIdentifier:
-                  type: string
-                  description: The DB cluster identifier for the DB cluster to be deleted.
-                SkipFinalSnapshot:
-                  type: boolean
-                  description: Determines whether a final DB cluster snapshot is created before the DB cluster is deleted.
-                FinalDBSnapshotIdentifier:
-                  type: string
-                  description: The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false.
-            examples:
-              deleteDBClusterRequestExample:
-                summary: Default deleteDBCluster request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful response with the deleted DB cluster details.
-        '404':
-          description: DB cluster not found.
       tags:
-      - '#DeleteDBCluster'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#CreateDBInstance:
-    post:
-      operationId: createDBInstance
-      summary: Amazon DocumentDB Create DB Instance
-      description: Creates a new DB instance within a DocumentDB cluster.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - CreateDBInstance
-        example: CreateDBInstance
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2014-10-31'
-        example: 5.0.0
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-              - DBInstanceIdentifier
-              - DBInstanceClass
-              - Engine
-              - DBClusterIdentifier
-              properties:
-                DBInstanceIdentifier:
-                  type: string
-                  description: The DB instance identifier.
-                DBInstanceClass:
-                  type: string
-                  description: The compute and memory capacity of the DB instance.
-                Engine:
-                  type: string
-                  description: The name of the database engine to be used for this instance.
-                  default: docdb
-                DBClusterIdentifier:
-                  type: string
-                  description: The identifier of the DB cluster that the instance will belong to.
-                AvailabilityZone:
-                  type: string
-                  description: The EC2 Availability Zone that the DB instance is created in.
-                AutoMinorVersionUpgrade:
-                  type: boolean
-                  description: Indicates that minor engine upgrades are applied automatically during maintenance windows.
-            examples:
-              createDBInstanceRequestExample:
-                summary: Default createDBInstance request
-                x-microcks-default: true
-                value: {}
-      responses:
-        '200':
-          description: Successful response with the created DB instance details.
-        '400':
-          description: Bad request error.
-      tags:
-      - '#CreateDBInstance'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /#DescribeDBInstances:
-    get:
-      operationId: describeDBInstances
-      summary: Amazon DocumentDB Describe DB Instances
-      description: Returns information about provisioned Amazon DocumentDB instances.
-      parameters:
-      - name: Action
-        in: query
-        required: true
-        schema:
-          type: string
-          enum:
-          - DescribeDBInstances
-        example: DescribeDBInstances
-      - name: Version
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '2014-10-31'
-        example: 5.0.0
-      - name: DBInstanceIdentifier
-        in: query
-        schema:
-          type: string
-        description: The identifier of the DB instance to describe.
-        example: i-0abc123def456789
-      - name: MaxRecords
-        in: query
-        schema:
-          type: integer
-        description: The maximum number of records to include in the response.
-        example: 1
-      - name: Marker
-        in: query
-        schema:
-          type: string
-        description: An optional pagination token provided by a previous request.
-        example: example-string
-      responses:
-        '200':
-          description: Successful response with DB instance details.
-        '404':
-          description: DB instance not found.
-      tags:
-      - '#DescribeDBInstances'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
+      - Amazon DocumentDB API
 components:
   schemas:
-    CreateDBClusterResult:
-      type: object
-      properties:
-        DBCluster:
-          $ref: '#/components/schemas/DBCluster'
     DescribeDBClustersResult:
       type: object
       properties:
@@ -417,13 +249,14 @@ components:
           example:
           - DBInstanceIdentifier: i-0abc123def456789
             IsClusterWriter: true
+    CreateDBClusterResult:
+      type: object
+      properties:
+        DBCluster:
+          $ref: '#/components/schemas/DBCluster'
   securitySchemes:
     aws_sigv4:
       type: apiKey
       name: Authorization
       in: header
       description: AWS Signature Version 4 authentication.
-tags:
-- name: '#CreateDBInstance'
-- name: '#DeleteDBCluster'
-- name: '#DescribeDBInstances'

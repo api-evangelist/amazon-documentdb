@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: 'Amazon DocumentDB Amazon DocumentDB API #DescribeDBInstances API'
+  description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.
+  version: '2014-10-31'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://aws.amazon.com/documentdb/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://rds.amazonaws.com
+  description: Amazon DocumentDB API endpoint
+tags:
+- name: '#DescribeDBInstances'
+paths:
+  /#DescribeDBInstances:
+    get:
+      operationId: describeDBInstances
+      summary: Amazon DocumentDB Describe DB Instances
+      description: Returns information about provisioned Amazon DocumentDB instances.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeDBInstances
+        example: DescribeDBInstances
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2014-10-31'
+        example: 5.0.0
+      - name: DBInstanceIdentifier
+        in: query
+        schema:
+          type: string
+        description: The identifier of the DB instance to describe.
+        example: i-0abc123def456789
+      - name: MaxRecords
+        in: query
+        schema:
+          type: integer
+        description: The maximum number of records to include in the response.
+        example: 1
+      - name: Marker
+        in: query
+        schema:
+          type: string
+        description: An optional pagination token provided by a previous request.
+        example: example-string
+      responses:
+        '200':
+          description: Successful response with DB instance details.
+        '404':
+          description: DB instance not found.
+      tags:
+      - '#DescribeDBInstances'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    aws_sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication.
