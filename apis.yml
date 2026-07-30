@@ -3,6 +3,19 @@ description: >-
   Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set up,
   operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed from the ground up to give you
   the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/documentdb/
 created: '2024-01-15'
@@ -17,46 +30,136 @@ tags:
   - MongoDB
   - NoSQL
 apis:
-  - name: Amazon DocumentDB API
-    description: >-
-      API for managing Amazon DocumentDB clusters, instances, parameter groups, subnet groups, snapshots, and related
-      resources.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    humanURL: https://aws.amazon.com/documentdb/
-    baseURL: https://rds.amazonaws.com
-    tags:
-      - AWS
-      - Database
-      - Document Database
-      - MongoDB
-      - NoSQL
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
-      - type: OpenAPI
-        url: openapi/amazon-documentdb-openapi.yml
-      - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/docdb/2014-10-31/openapi.yaml
-      - type: JSONSchema
-        url: json-schema/amazon-documentdb-dbcluster-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-documentdb-context.jsonld
-      - type: Pricing
-        url: https://aws.amazon.com/documentdb/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/documentdb/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/documentdb/faqs/
-      - type: APIReference
-        url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
-      - type: Authentication
-        url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
-      - type: RateLimits
-        url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
-      - type: JSONStructure
-        url: json-structure/amazon-documentdb-dbcluster-structure.json
-      - type: Examples
-        url: examples/amazon-documentdb-dbcluster-example.json
+- aid: amazon-documentdb:amazon-documentdb-amazon-documentdb-api-api
+  name: Amazon DocumentDB Amazon DocumentDB API API
+  description: >-
+    The Amazon DocumentDB API API from Amazon DocumentDB — 1 operation(s) for amazon documentdb api.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Amazon DocumentDB API
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-documentdb-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/documentdb/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/documentdb/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/documentdb/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
+  - type: Authentication
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
+  - type: JSONStructure
+    url: json-structure/amazon-documentdb-dbcluster-structure.json
+  - type: Examples
+    url: examples/amazon-documentdb-dbcluster-example.json
+- aid: amazon-documentdb:amazon-documentdb-createdbinstance-api
+  name: 'Amazon DocumentDB #CreateDBInstance API'
+  description: 'The #CreateDBInstance API from Amazon DocumentDB — 1 operation(s) for #createdbinstance.'
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - '#CreateDBInstance'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-createdbinstance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-documentdb-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/documentdb/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/documentdb/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/documentdb/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
+  - type: Authentication
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
+  - type: JSONStructure
+    url: json-structure/amazon-documentdb-dbcluster-structure.json
+  - type: Examples
+    url: examples/amazon-documentdb-dbcluster-example.json
+- aid: amazon-documentdb:amazon-documentdb-deletedbcluster-api
+  name: 'Amazon DocumentDB #DeleteDBCluster API'
+  description: 'The #DeleteDBCluster API from Amazon DocumentDB — 1 operation(s) for #deletedbcluster.'
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - '#DeleteDBCluster'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-deletedbcluster-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-documentdb-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/documentdb/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/documentdb/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/documentdb/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
+  - type: Authentication
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
+  - type: JSONStructure
+    url: json-structure/amazon-documentdb-dbcluster-structure.json
+  - type: Examples
+    url: examples/amazon-documentdb-dbcluster-example.json
+- aid: amazon-documentdb:amazon-documentdb-describedbinstances-api
+  name: 'Amazon DocumentDB #DescribeDBInstances API'
+  description: >-
+    The #DescribeDBInstances API from Amazon DocumentDB — 1 operation(s) for #describedbinstances.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - '#DescribeDBInstances'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-describedbinstances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-documentdb-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/documentdb/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/documentdb/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/documentdb/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
+  - type: Authentication
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
+  - type: JSONStructure
+    url: json-structure/amazon-documentdb-dbcluster-structure.json
+  - type: Examples
+    url: examples/amazon-documentdb-dbcluster-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-documentdb-agentic-access.yml
