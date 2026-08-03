@@ -1,0 +1,20 @@
+{
+  "provider": "amazon-documentdb",
+  "sources": [
+    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml",
+    "amazon-documentdb-createdbinstance-api-openapi.yml",
+    "amazon-documentdb-deletedbcluster-api-openapi.yml",
+    "amazon-documentdb-describedbinstances-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml",
+    "amazon-documentdb-createdbinstance-api-openapi.yml",
+    "amazon-documentdb-deletedbcluster-api-openapi.yml",
+    "amazon-documentdb-describedbinstances-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
