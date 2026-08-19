@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon DocumentDB Amazon DocumentDB API #DeleteDBCluster API",
+    "version": "2014-10-31"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#DeleteDBCluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Delete DB Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rds.amazonaws.com/#DeleteDBCluster",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DeleteDBCluster",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DBClusterIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "SkipFinalSnapshot",
+                  "value": ""
+                },
+                {
+                  "name": "FinalDBSnapshotIdentifier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

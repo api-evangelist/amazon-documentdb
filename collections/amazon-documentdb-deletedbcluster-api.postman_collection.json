@@ -1,0 +1,188 @@
+{
+  "item": [
+    {
+      "id": "6459ab89-e9be-4d3f-9aae-8ce1d07613d8",
+      "name": "#DeleteDBCluster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd311a6a-926d-4126-bfdf-ea0f38c13b4f",
+          "name": "Amazon DocumentDB Delete DB Cluster",
+          "request": {
+            "name": "Amazon DocumentDB Delete DB Cluster",
+            "description": {
+              "content": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "DeleteDBCluster",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2014-10-31",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB cluster identifier for the DB cluster to be deleted."
+                },
+                {
+                  "disabled": false,
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>",
+                  "description": "Determines whether a final DB cluster snapshot is created before the DB cluster is deleted."
+                },
+                {
+                  "disabled": false,
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "The DB cluster snapshot identifier of the new DB cluster snapshot created when SkipFinalSnapshot is set to false."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "93613810-27e5-42bb-b1e7-552bf2ec32f1",
+              "name": "Successful response with the deleted DB cluster details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DeleteDBCluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DeleteDBCluster"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea71bc19-8007-4a34-ab8f-b1357cfcb9e1",
+              "name": "DB cluster not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DeleteDBCluster",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DeleteDBCluster"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://rds.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9d46c9b5-09dd-4f91-be8e-203677b5e4f1",
+    "name": "Amazon DocumentDB Amazon DocumentDB API #DeleteDBCluster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

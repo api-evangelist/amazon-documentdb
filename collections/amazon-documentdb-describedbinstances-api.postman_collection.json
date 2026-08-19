@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "6cc547f7-1840-4386-bb75-533ffbd5b1a9",
+      "name": "#DescribeDBInstances",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33561fe2-fa9d-4960-a9d6-754ebd938ccd",
+          "name": "Amazon DocumentDB Describe DB Instances",
+          "request": {
+            "name": "Amazon DocumentDB Describe DB Instances",
+            "description": {
+              "content": "Returns information about provisioned Amazon DocumentDB instances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "hash": "DescribeDBInstances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2014-10-31",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "The identifier of the DB instance to describe."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxRecords",
+                  "value": "<integer>",
+                  "description": "The maximum number of records to include in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>",
+                  "description": "An optional pagination token provided by a previous request."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "414ff253-9bbf-4f87-bbde-045d6e113164",
+              "name": "Successful response with DB instance details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DescribeDBInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DescribeDBInstances"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    },
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "i-0abc123def456789"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "1"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "example-string"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5135a186-4100-4907-9475-0c8127912e80",
+              "name": "DB instance not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "hash": "DescribeDBInstances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "DescribeDBInstances"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "5.0.0"
+                    },
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "i-0abc123def456789"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "1"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "example-string"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://rds.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cfc258b9-3004-404c-aacd-ce62ab9eae71",
+    "name": "Amazon DocumentDB Amazon DocumentDB API #DescribeDBInstances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

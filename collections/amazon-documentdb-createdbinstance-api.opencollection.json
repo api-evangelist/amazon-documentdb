@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon DocumentDB Amazon DocumentDB API #CreateDBInstance API",
+    "version": "2014-10-31"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#CreateDBInstance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Create DB Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://rds.amazonaws.com/#CreateDBInstance",
+            "params": [
+              {
+                "name": "Action",
+                "value": "CreateDBInstance",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "DBInstanceIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "DBInstanceClass",
+                  "value": ""
+                },
+                {
+                  "name": "Engine",
+                  "value": ""
+                },
+                {
+                  "name": "DBClusterIdentifier",
+                  "value": ""
+                },
+                {
+                  "name": "AvailabilityZone",
+                  "value": ""
+                },
+                {
+                  "name": "AutoMinorVersionUpgrade",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a new DB instance within a DocumentDB cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

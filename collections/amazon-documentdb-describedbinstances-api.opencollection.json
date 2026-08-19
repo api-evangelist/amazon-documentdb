@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon DocumentDB Amazon DocumentDB API #DescribeDBInstances API",
+    "version": "2014-10-31"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "#DescribeDBInstances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon DocumentDB Describe DB Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.amazonaws.com/#DescribeDBInstances",
+            "params": [
+              {
+                "name": "Action",
+                "value": "DescribeDBInstances",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "5.0.0",
+                "type": "query"
+              },
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "i-0abc123def456789",
+                "type": "query",
+                "description": "The identifier of the DB instance to describe."
+              },
+              {
+                "name": "MaxRecords",
+                "value": "1",
+                "type": "query",
+                "description": "The maximum number of records to include in the response."
+              },
+              {
+                "name": "Marker",
+                "value": "example-string",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request."
+              }
+            ]
+          },
+          "docs": "Returns information about provisioned Amazon DocumentDB instances."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
