@@ -3,6 +3,18 @@ description: >-
   Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set up,
   operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed from the ground up to give you
   the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 specificationVersion: '0.23'
 accessModel:
   pricing: freemium
