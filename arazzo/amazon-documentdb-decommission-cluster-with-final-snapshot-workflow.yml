@@ -12,8 +12,11 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: docdbApi
-  url: ../openapi/amazon-documentdb-openapi.yml
+- name: amazonDocumentdbApiApi
+  url: ../openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml
+  type: openapi
+- name: deletedbclusterApi
+  url: ../openapi/amazon-documentdb-deletedbcluster-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: decommission-cluster-with-final-snapshot

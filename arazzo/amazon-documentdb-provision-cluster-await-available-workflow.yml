@@ -12,8 +12,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: docdbApi
-  url: ../openapi/amazon-documentdb-openapi.yml
+- name: amazonDocumentdbApiApi
+  url: ../openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-cluster-await-available
