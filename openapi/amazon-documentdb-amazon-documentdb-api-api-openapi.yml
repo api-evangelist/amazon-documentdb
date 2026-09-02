@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Amazon DocumentDB Amazon DocumentDB API API
+  title: Amazon DocumentDB API
   description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service designed for performance, scalability, and availability when operating mission-critical MongoDB workloads at scale.
   version: '2014-10-31'
   contact:
@@ -168,6 +168,11 @@ paths:
       - Amazon DocumentDB API
 components:
   schemas:
+    CreateDBClusterResult:
+      type: object
+      properties:
+        DBCluster:
+          $ref: '#/components/schemas/DBCluster'
     DescribeDBClustersResult:
       type: object
       properties:
@@ -249,11 +254,6 @@ components:
           example:
           - DBInstanceIdentifier: i-0abc123def456789
             IsClusterWriter: true
-    CreateDBClusterResult:
-      type: object
-      properties:
-        DBCluster:
-          $ref: '#/components/schemas/DBCluster'
   securitySchemes:
     aws_sigv4:
       type: apiKey
