@@ -1,8 +1,8 @@
 name: Amazon DocumentDB
-description: >-
-  Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set up,
-  operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed from the ground up to give you
-  the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale.
+description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes
+  it easy to set up, operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed
+  from the ground up to give you the performance, scalability, and availability you need when operating
+  mission-critical MongoDB workloads at scale.
 deliveryModel:
   model: saas
   open_source: false
@@ -33,21 +33,21 @@ accessModel:
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/documentdb/
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-09-16'
 tags:
-  - Amazon Web Services
-  - AWS
-  - Database
-  - Document Database
-  - DocumentDB
-  - Managed Database
-  - MongoDB
-  - NoSQL
+- Amazon Web Services
+- AWS
+- Database
+- Document Database
+- DocumentDB
+- Managed Database
+- MongoDB
+- NoSQL
 apis:
 - aid: amazon-documentdb:amazon-documentdb-amazon-documentdb-api-api
-  name: Amazon DocumentDB Amazon DocumentDB API API
-  description: >-
-    The Amazon DocumentDB API API from Amazon DocumentDB — 1 operation(s) for amazon documentdb api.
+  name: Amazon DocumentDB Amazon DocumentDB API
+  description: The Amazon DocumentDB API API from Amazon DocumentDB — 1 operation(s) for amazon documentdb
+    api.
   humanURL: https://aws.amazon.com/documentdb/
   baseURL: https://rds.amazonaws.com
   tags:
@@ -143,8 +143,7 @@ apis:
     url: examples/amazon-documentdb-dbcluster-example.json
 - aid: amazon-documentdb:amazon-documentdb-describedbinstances-api
   name: 'Amazon DocumentDB #DescribeDBInstances API'
-  description: >-
-    The #DescribeDBInstances API from Amazon DocumentDB — 1 operation(s) for #describedbinstances.
+  description: 'The #DescribeDBInstances API from Amazon DocumentDB — 1 operation(s) for #describedbinstances.'
   humanURL: https://aws.amazon.com/documentdb/
   baseURL: https://rds.amazonaws.com
   tags:
@@ -175,136 +174,143 @@ apis:
   - type: Examples
     url: examples/amazon-documentdb-dbcluster-example.json
 common:
-  - type: AgenticAccess
-    url: agentic-access/amazon-documentdb-agentic-access.yml
-  - type: TrustCenter
-    url: security/amazon-documentdb-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/amazon-documentdb-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/amazon-documentdb-domain-security.yml
-  - type: Authentication
-    url: authentication/amazon-documentdb-authentication.yml
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/amazon-documentdb/overview
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-add-instance-await-available-workflow.yml
-    name: Amazon DocumentDB Add Instance and Await Available
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-bootstrap-cluster-with-instance-workflow.yml
-    name: Amazon DocumentDB Bootstrap Cluster with Primary Instance
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-decommission-cluster-with-final-snapshot-workflow.yml
-    name: Amazon DocumentDB Decommission Cluster with Final Snapshot
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-inventory-cluster-and-instances-workflow.yml
-    name: Amazon DocumentDB Inventory Cluster and Instances
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-provision-cluster-await-available-workflow.yml
-    name: Amazon DocumentDB Provision Cluster and Await Available
-  - type: Arazzo
-    url: arazzo/amazon-documentdb-scale-out-read-replica-workflow.yml
-    name: Amazon DocumentDB Scale Out Read Replica
-  - type: Portal
-    url: https://aws.amazon.com/
-  - type: DeveloperPortal
-    url: https://aws.amazon.com/developer/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/documentdb/
-  - type: TermsOfService
-    url: https://aws.amazon.com/service-terms/
-  - type: PrivacyPolicy
-    url: https://aws.amazon.com/privacy/
-  - type: Support
-    url: https://aws.amazon.com/support/
-  - type: Blog
-    url: https://aws.amazon.com/blogs/database/
-  - type: GitHubOrganization
-    url: https://github.com/aws
-  - type: Console
-    url: https://console.aws.amazon.com/docdb/
-  - type: Signup
-    url: https://portal.aws.amazon.com/billing/signup
-  - type: Login
-    url: https://signin.aws.amazon.com/
-  - type: StatusPage
-    url: https://health.aws.amazon.com/health/status
-  - type: KnowledgeCenter
-    url: https://repost.aws/knowledge-center
-  - type: YouTube
-    url: https://www.youtube.com/user/AmazonWebServices
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/amazon-documentdb
-  - type: Contact
-    url: https://aws.amazon.com/contact-us/
-  - type: Security
-    url: https://aws.amazon.com/security/
-  - type: Compliance
-    url: https://aws.amazon.com/compliance/
-  - type: Features
-    data:
-      - name: Serverless Architecture
-        description: >-
-          Automatically scales capacity up or down in fine-grained increments based on application demand, with up to
-          90% cost savings versus peak provisioning.
-      - name: MongoDB Compatibility
-        description: Migrate applications typically without code changes or downtime using existing MongoDB drivers and tools.
-      - name: Global Clusters
-        description: Automatically replicates data across up to 10 AWS Regions for low-latency reads and disaster recovery.
-      - name: Fully Managed
-        description: Eliminates database patching, backups, and monitoring overhead so you can focus on application development.
-      - name: I/O-Optimized Storage
-        description: Provides up to 40% cost savings for I/O-intensive workloads with predictable pricing.
-      - name: Memory-Optimized Instances
-        description: Offers memory-optimized instance types with up to 43% cost savings for large workloads.
-      - name: Automated Backups
-        description: Continuous backups to Amazon S3 and point-in-time recovery within the backup retention window.
-      - name: Encryption at Rest and in Transit
-        description: Data is encrypted using AES-256, with support for AWS KMS customer-managed keys.
-  - type: UseCases
-    data:
-      - name: Content Management Systems
-        description: Store and retrieve flexible JSON-structured content with rich query capabilities for CMS platforms.
-      - name: E-Commerce Platforms
-        description: Manage product catalogs, user profiles, and order data with scalable document storage.
-      - name: Mobile and Web Applications
-        description: Power real-time application backends with low-latency, scalable document storage.
-      - name: Generative AI Applications
-        description: Store and retrieve context, embeddings, and conversational history for AI-powered agentic applications.
-      - name: Gaming Applications
-        description: Handle player profiles, leaderboards, and game state with flexible schema and high throughput.
-  - type: Integrations
-    data:
-      - name: Amazon CloudWatch
-        description: Monitor DocumentDB cluster metrics, set alarms, and view performance data through CloudWatch dashboards.
-      - name: AWS IAM
-        description: Control access to DocumentDB resources and operations using IAM policies and roles.
-      - name: AWS Backup
-        description: Centrally manage and automate backups of DocumentDB clusters using AWS Backup policies.
-      - name: Amazon OpenSearch Service
-        description: Zero-ETL integration to replicate DocumentDB data to OpenSearch for full-text search and analytics.
-      - name: AWS CloudTrail
-        description: Log all DocumentDB API calls for auditing, compliance, and security analysis.
-      - name: AWS Key Management Service
-        description: Manage encryption keys for DocumentDB clusters using KMS customer-managed keys.
-  - type: SpectralRules
-    url: rules/amazon-documentdb-spectral-rules.yml
-  - type: Vocabulary
-    url: vocabulary/amazon-documentdb-vocabulary.yaml
-  - type: Integrations
-    url: https://aws.amazon.com/marketplace
+- type: AgenticAccess
+  url: agentic-access/amazon-documentdb-agentic-access.yml
+- type: TrustCenter
+  url: security/amazon-documentdb-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-documentdb-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-documentdb-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-documentdb-authentication.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-documentdb/overview
+- type: Arazzo
+  url: arazzo/amazon-documentdb-add-instance-await-available-workflow.yml
+  name: Amazon DocumentDB Add Instance and Await Available
+- type: Arazzo
+  url: arazzo/amazon-documentdb-bootstrap-cluster-with-instance-workflow.yml
+  name: Amazon DocumentDB Bootstrap Cluster with Primary Instance
+- type: Arazzo
+  url: arazzo/amazon-documentdb-decommission-cluster-with-final-snapshot-workflow.yml
+  name: Amazon DocumentDB Decommission Cluster with Final Snapshot
+- type: Arazzo
+  url: arazzo/amazon-documentdb-inventory-cluster-and-instances-workflow.yml
+  name: Amazon DocumentDB Inventory Cluster and Instances
+- type: Arazzo
+  url: arazzo/amazon-documentdb-provision-cluster-await-available-workflow.yml
+  name: Amazon DocumentDB Provision Cluster and Await Available
+- type: Arazzo
+  url: arazzo/amazon-documentdb-scale-out-read-replica-workflow.yml
+  name: Amazon DocumentDB Scale Out Read Replica
+- type: Portal
+  url: https://aws.amazon.com/
+- type: DeveloperPortal
+  url: https://aws.amazon.com/developer/
+- type: Documentation
+  url: https://docs.aws.amazon.com/documentdb/
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/support/
+- type: Blog
+  url: https://aws.amazon.com/blogs/database/
+- type: GitHubOrganization
+  url: https://github.com/aws
+- type: Console
+  url: https://console.aws.amazon.com/docdb/
+- type: Signup
+  url: https://portal.aws.amazon.com/billing/signup
+- type: Login
+  url: https://signin.aws.amazon.com/
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: KnowledgeCenter
+  url: https://repost.aws/knowledge-center
+- type: YouTube
+  url: https://www.youtube.com/user/AmazonWebServices
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/amazon-documentdb
+- type: Contact
+  url: https://aws.amazon.com/contact-us/
+- type: Security
+  url: https://aws.amazon.com/security/
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: Features
+  data:
+  - name: Serverless Architecture
+    description: Automatically scales capacity up or down in fine-grained increments based on application
+      demand, with up to 90% cost savings versus peak provisioning.
+  - name: MongoDB Compatibility
+    description: Migrate applications typically without code changes or downtime using existing MongoDB
+      drivers and tools.
+  - name: Global Clusters
+    description: Automatically replicates data across up to 10 AWS Regions for low-latency reads and disaster
+      recovery.
+  - name: Fully Managed
+    description: Eliminates database patching, backups, and monitoring overhead so you can focus on application
+      development.
+  - name: I/O-Optimized Storage
+    description: Provides up to 40% cost savings for I/O-intensive workloads with predictable pricing.
+  - name: Memory-Optimized Instances
+    description: Offers memory-optimized instance types with up to 43% cost savings for large workloads.
+  - name: Automated Backups
+    description: Continuous backups to Amazon S3 and point-in-time recovery within the backup retention
+      window.
+  - name: Encryption at Rest and in Transit
+    description: Data is encrypted using AES-256, with support for AWS KMS customer-managed keys.
+- type: UseCases
+  data:
+  - name: Content Management Systems
+    description: Store and retrieve flexible JSON-structured content with rich query capabilities for
+      CMS platforms.
+  - name: E-Commerce Platforms
+    description: Manage product catalogs, user profiles, and order data with scalable document storage.
+  - name: Mobile and Web Applications
+    description: Power real-time application backends with low-latency, scalable document storage.
+  - name: Generative AI Applications
+    description: Store and retrieve context, embeddings, and conversational history for AI-powered agentic
+      applications.
+  - name: Gaming Applications
+    description: Handle player profiles, leaderboards, and game state with flexible schema and high throughput.
+- type: Integrations
+  data:
+  - name: Amazon CloudWatch
+    description: Monitor DocumentDB cluster metrics, set alarms, and view performance data through CloudWatch
+      dashboards.
+  - name: AWS IAM
+    description: Control access to DocumentDB resources and operations using IAM policies and roles.
+  - name: AWS Backup
+    description: Centrally manage and automate backups of DocumentDB clusters using AWS Backup policies.
+  - name: Amazon OpenSearch Service
+    description: Zero-ETL integration to replicate DocumentDB data to OpenSearch for full-text search
+      and analytics.
+  - name: AWS CloudTrail
+    description: Log all DocumentDB API calls for auditing, compliance, and security analysis.
+  - name: AWS Key Management Service
+    description: Manage encryption keys for DocumentDB clusters using KMS customer-managed keys.
+- type: SpectralRules
+  url: rules/amazon-documentdb-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-documentdb-vocabulary.yaml
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
 maintainer:
   name: Kin Lane
   email: kin@apievangelist.com
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: Why AWS Marketplace?
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 x-parent: aws
 x-relationship: product
