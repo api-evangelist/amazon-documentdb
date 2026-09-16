@@ -174,6 +174,8 @@ apis:
   - type: Examples
     url: examples/amazon-documentdb-dbcluster-example.json
 common:
+- type: Website
+  url: https://amazon.com
 - type: AgenticAccess
   url: agentic-access/amazon-documentdb-agentic-access.yml
 - type: TrustCenter
