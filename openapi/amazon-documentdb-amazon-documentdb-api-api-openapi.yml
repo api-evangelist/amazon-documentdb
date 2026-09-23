@@ -168,11 +168,6 @@ paths:
       - Amazon DocumentDB API
 components:
   schemas:
-    CreateDBClusterResult:
-      type: object
-      properties:
-        DBCluster:
-          $ref: '#/components/schemas/DBCluster'
     DescribeDBClustersResult:
       type: object
       properties:
@@ -254,6 +249,11 @@ components:
           example:
           - DBInstanceIdentifier: i-0abc123def456789
             IsClusterWriter: true
+    CreateDBClusterResult:
+      type: object
+      properties:
+        DBCluster:
+          $ref: '#/components/schemas/DBCluster'
   securitySchemes:
     aws_sigv4:
       type: apiKey

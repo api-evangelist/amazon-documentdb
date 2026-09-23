@@ -1,22 +1,29 @@
 {
   "provider": "amazon-documentdb",
   "sources": [
-    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml",
-    "amazon-documentdb-createdbinstance-api-openapi.yml",
-    "amazon-documentdb-deletedbcluster-api-openapi.yml",
-    "amazon-documentdb-describedbinstances-api-openapi.yml"
+    "_original/amazon-documentdb-openapi.yml"
   ],
   "outputs": [
-    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml",
     "amazon-documentdb-createdbinstance-api-openapi.yml",
     "amazon-documentdb-deletedbcluster-api-openapi.yml",
-    "amazon-documentdb-describedbinstances-api-openapi.yml"
+    "amazon-documentdb-describedbinstances-api-openapi.yml",
+    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-documentdb-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "amazon-documentdb-openapi.yml: tagged paths POST / -> Amazon DocumentDB API",
+    "amazon-documentdb-openapi.yml: tagged paths GET / -> Amazon DocumentDB API",
+    "amazon-documentdb-openapi.yml: declared missing tag: Amazon DocumentDB API",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-documentdb-createdbinstance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-documentdb-deletedbcluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-documentdb-describedbinstances-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
