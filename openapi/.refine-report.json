@@ -6,9 +6,7 @@
   "outputs": [
     "amazon-documentdb-amazon-documentdb-api-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 3 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -20,13 +18,9 @@
     "amazon-documentdb-openapi.yml: tagged paths POST /#CreateDBInstance -> Amazon DocumentDB API",
     "amazon-documentdb-openapi.yml: tagged paths GET /#DescribeDBInstances -> Amazon DocumentDB API",
     "amazon-documentdb-openapi.yml: declared missing tag: Amazon DocumentDB API",
-    "superseded outputs removed: amazon-documentdb-createdbinstance-api-openapi.yml, amazon-documentdb-deletedbcluster-api-openapi.yml, amazon-documentdb-describedbinstances-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 1 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-documentdb-createdbinstance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-documentdb-deletedbcluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-documentdb-describedbinstances-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "amazon-documentdb-amazon-documentdb-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }
