@@ -336,6 +336,11 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CreateDBClusterResult:
+      type: object
+      properties:
+        DBCluster:
+          $ref: '#/components/schemas/DBCluster'
     DBCluster:
       type: object
       properties:
@@ -405,11 +410,6 @@ components:
           example:
           - DBInstanceIdentifier: i-0abc123def456789
             IsClusterWriter: true
-    CreateDBClusterResult:
-      type: object
-      properties:
-        DBCluster:
-          $ref: '#/components/schemas/DBCluster'
     DescribeDBClustersResult:
       type: object
       properties:
