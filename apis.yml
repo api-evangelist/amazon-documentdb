@@ -78,6 +78,9 @@ apis:
   - type: Examples
     url: examples/amazon-documentdb-dbcluster-example.json
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-documentdb-capability-edges.yml
+  name: Amazon DocumentDB Business Capability Map
 - type: Website
   url: https://aws.amazon.com/documentdb/
 - type: AgenticAccess
