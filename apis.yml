@@ -78,6 +78,12 @@ apis:
   - type: Examples
     url: examples/amazon-documentdb-dbcluster-example.json
 common:
+- type: Plans
+  url: plans/amazon-documentdb-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-documentdb-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-documentdb-finops.yml
 - type: CapabilityMap
   url: capabilities/amazon-documentdb-capability-edges.yml
   name: Amazon DocumentDB Business Capability Map
