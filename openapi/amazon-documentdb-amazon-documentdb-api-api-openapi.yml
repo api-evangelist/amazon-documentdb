@@ -336,6 +336,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    DescribeDBClustersResult:
+      type: object
+      properties:
+        DBClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/DBCluster'
+          example:
+          - example-cluster-01
+        Marker:
+          type: string
+          example: example-string
     CreateDBClusterResult:
       type: object
       properties:
@@ -410,18 +422,6 @@ components:
           example:
           - DBInstanceIdentifier: i-0abc123def456789
             IsClusterWriter: true
-    DescribeDBClustersResult:
-      type: object
-      properties:
-        DBClusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/DBCluster'
-          example:
-          - example-cluster-01
-        Marker:
-          type: string
-          example: example-string
   securitySchemes:
     aws_sigv4:
       type: apiKey
