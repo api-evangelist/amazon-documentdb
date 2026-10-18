@@ -38,5 +38,5 @@
     - connectors/databases/documentdb
     vendor_link: https://aws.amazon.com/documentdb/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
