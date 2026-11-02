@@ -1,0 +1,238 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/documentdb/pricing/
+sources:
+- https://aws.amazon.com/documentdb/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: On-Demand Instance
+published: true
+note: Most rate tables are region-selector placeholders not rendered; numeric prices come from the pricing
+  examples and footnotes in the page text.
+plan_count: 14
+currency: USD
+plans:
+- name: Serverless (DocumentDB Standard)
+  price_text: $0.0822 per DCU-hour
+  price: 0.0822
+  currency: USD
+  period: per-use
+  unit: DCU-hour
+  included_quota: Starting capacity 0.5 DCU; granularity 0.5 DCU
+- name: Serverless (I/O-Optimized)
+  price_text: $0.0905 per DCU-hour
+  price: 0.0905
+  currency: USD
+  period: per-use
+  unit: DCU-hour
+- name: On-demand instance db.r5.large (Standard, US East N. Virginia)
+  price_text: $0.277 per hour
+  price: 0.277
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: On-demand instance db.r5.large (I/O-Optimized)
+  price_text: $0.3047 per hour
+  price: 0.3047
+  currency: USD
+  period: per-use
+  unit: instance-hour
+  included_quota: I/Os included
+- name: Database storage (Standard)
+  price_text: $0.10 per GB/month
+  price: 0.1
+  currency: USD
+  period: month
+  unit: GB
+  included_quota: backup storage up to 100% of cluster storage free
+- name: Database storage (I/O-Optimized)
+  price_text: $0.30 per GB/month
+  price: 0.3
+  currency: USD
+  period: month
+  unit: GB
+- name: Database I/O (Standard)
+  price_text: $0.20 per million request increments
+  price: 0.2
+  currency: USD
+  period: per-use
+  unit: million I/O requests
+- name: Backup storage (additional)
+  price_text: $0.02 per GB/month
+  price: 0.02
+  currency: USD
+  period: month
+  unit: GB
+  included_quota: 100% of data storage free
+- name: Elastic Clusters vCPU
+  price_text: $0.132 per hour
+  price: 0.132
+  currency: USD
+  period: per-use
+  unit: vCPU-hour
+- name: T3/T4g CPU Credits
+  price_text: $0.09 per vCPU-Hour
+  price: 0.09
+  currency: USD
+  period: per-use
+  unit: vCPU-hour
+- name: Extended Support Year 1-2 (db.r4.large example)
+  price_text: $0.111 per vCPU-hour
+  price: 0.111
+  currency: USD
+  period: per-use
+  unit: vCPU-hour
+- name: Extended Support Year 3 (db.r4.large example)
+  price_text: $0.222 per vCPU-hour
+  price: 0.222
+  currency: USD
+  period: per-use
+  unit: vCPU-hour
+- name: Data Transfer OUT up to 1 GB/Month
+  price_text: $0.00 per GB
+  price: 0
+  currency: USD
+  period: month
+  unit: GB
+- name: Free trial
+  price_text: 750 hours per month of db.t3.medium instance usage, 30 million IOs, 5 GB of storage, and
+    5 GB of backup storage for free for 30 days
+  currency: USD
+  period: month
+  included_quota: one month free trial
+  overage: standard on-demand rates
+rate_limit_statements:
+- Up to 15 Amazon DocumentDB Replicas replicas for read scalability
+- Instances are billed in one second increments, with a 10-minute minimum charge following a billable
+  status change
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - compute
+  - data
+  - request
+  plans:
+  - name: Serverless (DocumentDB Standard)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Serverless (I/O-Optimized)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: On-demand instance db.r5.large (Standard, US East N. Virginia)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: On-demand instance db.r5.large (I/O-Optimized)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Database storage (Standard)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Database storage (I/O-Optimized)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Database I/O (Standard)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: Backup storage (additional)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Elastic Clusters vCPU
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: T3/T4g CPU Credits
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Extended Support Year 1-2 (db.r4.large example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Extended Support Year 3 (db.r4.large example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Data Transfer OUT up to 1 GB/Month
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Free trial
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - month
