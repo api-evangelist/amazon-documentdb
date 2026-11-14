@@ -1,8 +1,9 @@
 name: Amazon DocumentDB
-description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes
-  it easy to set up, operate, and scale MongoDB-compatible databases in the cloud. DocumentDB is designed
-  from the ground up to give you the performance, scalability, and availability you need when operating
-  mission-critical MongoDB workloads at scale.
+
+description: Amazon DocumentDB is a fully managed, MongoDB-compatible document database service that makes it easy to set up, operate, and scale
+  MongoDB-compatible databases in the cloud. DocumentDB is designed from the ground up to give you the performance, scalability, and availability
+  you need when operating mission-critical MongoDB workloads at scale.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -15,7 +16,9 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 specificationVersion: '0.23'
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -26,17 +29,22 @@ accessModel:
   gated_source:
   - onboarding
   label: Freemium (free trial) · Self-serve signup
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+
 url: https://aws.amazon.com/documentdb/
+
 created: '2024-01-15'
+
 modified: '2026-09-16'
+
 tags:
 - Amazon Web Services
 - Database
@@ -54,132 +62,56 @@ tags_raw:
 - Managed Database
 - MongoDB
 - NoSQL
-apis:
-- aid: amazon-documentdb:amazon-documentdb-amazon-documentdb-api-api
-  name: Amazon DocumentDB Amazon DocumentDB API
-  description: >-
-    The Amazon DocumentDB API API from Amazon DocumentDB — 1 operation(s) for amazon documentdb api.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Amazon DocumentDB API
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
-  - type: JSONSchema
-    url: json-schema/amazon-documentdb-dbcluster-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-documentdb-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/documentdb/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/documentdb/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/documentdb/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
-  - type: Authentication
-    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
-  - type: RateLimits
-    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
-  - type: JSONStructure
-    url: json-structure/amazon-documentdb-dbcluster-structure.json
-  - type: Examples
-    url: examples/amazon-documentdb-dbcluster-example.json
-- aid: amazon-documentdb:amazon-documentdb-db-cluster-api
-  name: Amazon DocumentDB Documentdb Db Cluster API
-  description: >-
-    The Documentdb Db Cluster API from Amazon DocumentDB — 5 operation(s) for documentdb db cluster.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Db Cluster
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-db-cluster-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-db-cluster-parameter-group-api
-  name: Amazon DocumentDB Documentdb Db Cluster Parameter Group API
-  description: >-
-    The Documentdb Db Cluster Parameter Group API from Amazon DocumentDB — 5 operation(s) for documentdb
-    db cluster parameter group.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Db Cluster Parameter Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-db-cluster-parameter-group-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-db-cluster-snapshot-api
-  name: Amazon DocumentDB Documentdb Db Cluster Snapshot API
-  description: >-
-    The Documentdb Db Cluster Snapshot API from Amazon DocumentDB — 3 operation(s) for documentdb db cluster
-    snapshot.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Db Cluster Snapshot
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-db-cluster-snapshot-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-db-subnet-group-api
-  name: Amazon DocumentDB Documentdb Db Subnet Group API
-  description: >-
-    The Documentdb Db Subnet Group API from Amazon DocumentDB — 4 operation(s) for documentdb db subnet
-    group.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Db Subnet Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-db-subnet-group-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-event-subscription-api
-  name: Amazon DocumentDB Documentdb Event Subscription API
-  description: >-
-    The Documentdb Event Subscription API from Amazon DocumentDB — 4 operation(s) for documentdb event
-    subscription.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Event Subscription
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-event-subscription-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-global-cluster-api
-  name: Amazon DocumentDB Documentdb Global Cluster API
-  description: >-
-    The Documentdb Global Cluster API from Amazon DocumentDB — 4 operation(s) for documentdb global cluster.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Global Cluster
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-global-cluster-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-operations-api
-  name: Amazon DocumentDB Documentdb Operations API
-  description: >-
-    The Documentdb Operations API from Amazon DocumentDB — 22 operation(s) for documentdb operations.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-operations-api-openapi.yml
-- aid: amazon-documentdb:amazon-documentdb-tag-api
-  name: Amazon DocumentDB Documentdb Tag API
-  description: The Documentdb Tag API from Amazon DocumentDB — 3 operation(s) for documentdb tag.
-  humanURL: https://aws.amazon.com/documentdb/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Documentdb Tag
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-documentdb-tag-api-openapi.yml
+
 common:
+- type: Spectral
+  url: rules/amazon-documentdb-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-documentdb-rules.yml
+- type: Spectral
+  url: rules/amazon-documentdb-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-documentdb-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-documentdb-data-model.yml
+- type: Conventions
+  url: conventions/amazon-documentdb-conventions.yml
+- type: Lifecycle
+  url: lifecycle/amazon-documentdb-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-documentdb-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-documentdb-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-documentdb-llms.txt
+- type: ToolCrosswalk
+  url: mcp/amazon-documentdb-tool-crosswalk.yml
+- type: MCPServer
+  url: mcp/amazon-documentdb-mcp.yml
+- type: SecurityTxt
+  url: well-known/amazon-documentdb-security.txt
+- type: SecurityTxt
+  url: well-known/amazon-documentdb-repost-security.txt
+- type: SecurityTxt
+  url: well-known/amazon-documentdb-builder-security.txt
+- type: WellKnown
+  url: well-known/amazon-documentdb-well-known.yml
+- type: Hosts
+  url: hosts/amazon-documentdb-hosts.yml
+- type: IntegrationEdges
+  url: integrations/amazon-documentdb-integration-edges.yml
+- type: Vendors
+  url: vendors/amazon-documentdb-vendors.yml
+- type: SDKs
+  url: packages/amazon-documentdb-packages.yml
+- type: Packages
+  url: packages/amazon-documentdb-packages.yml
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: APIReference
+  url: https://docs.aws.amazon.com/cli/latest/reference/docdb
+- type: GettingStarted
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds
 - type: Plans
   url: plans/amazon-documentdb-plans-pricing.yml
 - type: RateLimits
@@ -260,52 +192,44 @@ common:
 - type: Features
   data:
   - name: Serverless Architecture
-    description: Automatically scales capacity up or down in fine-grained increments based on application
-      demand, with up to 90% cost savings versus peak provisioning.
+    description: Automatically scales capacity up or down in fine-grained increments based on application demand, with up to 90% cost savings
+      versus peak provisioning.
   - name: MongoDB Compatibility
-    description: Migrate applications typically without code changes or downtime using existing MongoDB
-      drivers and tools.
+    description: Migrate applications typically without code changes or downtime using existing MongoDB drivers and tools.
   - name: Global Clusters
-    description: Automatically replicates data across up to 10 AWS Regions for low-latency reads and disaster
-      recovery.
+    description: Automatically replicates data across up to 10 AWS Regions for low-latency reads and disaster recovery.
   - name: Fully Managed
-    description: Eliminates database patching, backups, and monitoring overhead so you can focus on application
-      development.
+    description: Eliminates database patching, backups, and monitoring overhead so you can focus on application development.
   - name: I/O-Optimized Storage
     description: Provides up to 40% cost savings for I/O-intensive workloads with predictable pricing.
   - name: Memory-Optimized Instances
     description: Offers memory-optimized instance types with up to 43% cost savings for large workloads.
   - name: Automated Backups
-    description: Continuous backups to Amazon S3 and point-in-time recovery within the backup retention
-      window.
+    description: Continuous backups to Amazon S3 and point-in-time recovery within the backup retention window.
   - name: Encryption at Rest and in Transit
     description: Data is encrypted using AES-256, with support for AWS KMS customer-managed keys.
 - type: UseCases
   data:
   - name: Content Management Systems
-    description: Store and retrieve flexible JSON-structured content with rich query capabilities for
-      CMS platforms.
+    description: Store and retrieve flexible JSON-structured content with rich query capabilities for CMS platforms.
   - name: E-Commerce Platforms
     description: Manage product catalogs, user profiles, and order data with scalable document storage.
   - name: Mobile and Web Applications
     description: Power real-time application backends with low-latency, scalable document storage.
   - name: Generative AI Applications
-    description: Store and retrieve context, embeddings, and conversational history for AI-powered agentic
-      applications.
+    description: Store and retrieve context, embeddings, and conversational history for AI-powered agentic applications.
   - name: Gaming Applications
     description: Handle player profiles, leaderboards, and game state with flexible schema and high throughput.
 - type: Integrations
   data:
   - name: Amazon CloudWatch
-    description: Monitor DocumentDB cluster metrics, set alarms, and view performance data through CloudWatch
-      dashboards.
+    description: Monitor DocumentDB cluster metrics, set alarms, and view performance data through CloudWatch dashboards.
   - name: AWS IAM
     description: Control access to DocumentDB resources and operations using IAM policies and roles.
   - name: AWS Backup
     description: Centrally manage and automate backups of DocumentDB clusters using AWS Backup policies.
   - name: Amazon OpenSearch Service
-    description: Zero-ETL integration to replicate DocumentDB data to OpenSearch for full-text search
-      and analytics.
+    description: Zero-ETL integration to replicate DocumentDB data to OpenSearch for full-text search and analytics.
   - name: AWS CloudTrail
     description: Log all DocumentDB API calls for auditing, compliance, and security analysis.
   - name: AWS Key Management Service
@@ -316,9 +240,271 @@ common:
   url: vocabulary/amazon-documentdb-vocabulary.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-documentdb-terms-of-service.yml
+- type: Attestations
+  url: compliance/amazon-documentdb-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-documentdb-eligibility.yml
+
+apis:
+- aid: amazon-documentdb:amazon-documentdb-amazon-documentdb-api-api
+  name: Amazon DocumentDB Amazon DocumentDB API
+  description: The Amazon DocumentDB API API from Amazon DocumentDB — 1 operation(s) for amazon documentdb api.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Amazon DocumentDB API
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-documentdb-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/documentdb/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/documentdb/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/documentdb/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Reference.html
+  - type: Authentication
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/security.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html
+  - type: JSONStructure
+    url: json-structure/amazon-documentdb-dbcluster-structure.json
+  - type: Examples
+    url: examples/amazon-documentdb-dbcluster-example.json
+- aid: amazon-documentdb:amazon-documentdb-db-cluster-api
+  name: Amazon DocumentDB Documentdb Db Cluster API
+  description: The Documentdb Db Cluster API from Amazon DocumentDB — 5 operation(s) for documentdb db cluster.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Db Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-db-cluster-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-dbcluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbcluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-restore-dbcluster-to-point-in-time-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-restore-dbcluster-from-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-dbclusters-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-dbcluster-message-schema.json
+- aid: amazon-documentdb:amazon-documentdb-db-cluster-parameter-group-api
+  name: Amazon DocumentDB Documentdb Db Cluster Parameter Group API
+  description: The Documentdb Db Cluster Parameter Group API from Amazon DocumentDB — 5 operation(s) for documentdb db cluster parameter group.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Db Cluster Parameter Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-db-cluster-parameter-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-dbcluster-parameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-reset-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-parameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-dbcluster-parameter-group-message-schema.json
+- aid: amazon-documentdb:amazon-documentdb-db-cluster-snapshot-api
+  name: Amazon DocumentDB Documentdb Db Cluster Snapshot API
+  description: The Documentdb Db Cluster Snapshot API from Amazon DocumentDB — 3 operation(s) for documentdb db cluster snapshot.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Db Cluster Snapshot
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-db-cluster-snapshot-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-dbcluster-snapshots-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbcluster-snapshot-result-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-dbcluster-snapshot-result-schema.json
+- aid: amazon-documentdb:amazon-documentdb-db-subnet-group-api
+  name: Amazon DocumentDB Documentdb Db Subnet Group API
+  description: The Documentdb Db Subnet Group API from Amazon DocumentDB — 4 operation(s) for documentdb db subnet group.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Db Subnet Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-db-subnet-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-dbsubnet-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-dbsubnet-group-result-schema.json
+- aid: amazon-documentdb:amazon-documentdb-event-subscription-api
+  name: Amazon DocumentDB Documentdb Event Subscription API
+  description: The Documentdb Event Subscription API from Amazon DocumentDB — 4 operation(s) for documentdb event subscription.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Event Subscription
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-event-subscription-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-event-subscriptions-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-event-subscriptions-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-event-subscription-result-schema.json
+- aid: amazon-documentdb:amazon-documentdb-global-cluster-api
+  name: Amazon DocumentDB Documentdb Global Cluster API
+  description: The Documentdb Global Cluster API from Amazon DocumentDB — 4 operation(s) for documentdb global cluster.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Global Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-global-cluster-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-global-clusters-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-global-clusters-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-global-cluster-result-schema.json
+- aid: amazon-documentdb:amazon-documentdb-operations-api
+  name: Amazon DocumentDB Documentdb Operations API
+  description: The Documentdb Operations API from Amazon DocumentDB — 22 operation(s) for documentdb operations.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-dbinstance-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-copy-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-events-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-restore-cluster-from-snapshot-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-describe-dbengine-versions-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-modify-dbcluster-snapshot-attribute-message-schema.json
+- aid: amazon-documentdb:amazon-documentdb-tag-api
+  name: Amazon DocumentDB Documentdb Tag API
+  description: The Documentdb Tag API from Amazon DocumentDB — 3 operation(s) for documentdb tag.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Tag
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-tag-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-add-tags-to-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-list-tags-for-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-remove-tags-from-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-list-tags-for-resource-response-schema.json
+- aid: amazon-documentdb:amazon-documentdb-cluster-api
+  name: Amazon DocumentDB Documentdb Cluster API
+  description: The Documentdb Cluster API from Amazon DocumentDB — 2 operation(s) for documentdb cluster.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-cluster-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-cluster-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-update-cluster-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-cluster-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-get-cluster-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-cluster-output-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-cluster-output-schema.json
+- aid: amazon-documentdb:amazon-documentdb-cluster-snapshot-api
+  name: Amazon DocumentDB Documentdb Cluster Snapshot API
+  description: The Documentdb Cluster Snapshot API from Amazon DocumentDB — 2 operation(s) for documentdb cluster snapshot.
+  humanURL: https://aws.amazon.com/documentdb/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Documentdb Cluster Snapshot
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-documentdb-cluster-snapshot-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-cluster-snapshot-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-cluster-snapshot-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-get-cluster-snapshot-input-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-create-cluster-snapshot-output-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-delete-cluster-snapshot-output-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-documentdb-get-cluster-snapshot-output-schema.json
+
 maintainer:
   name: Kin Lane
   email: kin@apievangelist.com
+
 integrations:
 - name: Sign in
 - name: Agent Mode
@@ -329,5 +515,12 @@ integrations:
 - name: Become a Channel Partner
 - name: Sell in AWS Marketplace
 - name: Manage Your Account
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 6
+  pass: local-v6

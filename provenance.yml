@@ -29,6 +29,12 @@ artifacts:
   capabilities/amazon-documentdb-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-documentdb-amazon-documentdb-api-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-documentdb-amazon-documentdb-api-api
@@ -59,6 +65,24 @@ artifacts:
   collections/amazon-documentdb.postman_collection.json:
     method: derived
     evidence: openapi/amazon-documentdb
+  compliance/amazon-documentdb-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-documentdb-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-documentdb-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-documentdb-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-documentdb-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-documentdb-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-documentdb-dbcluster-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -77,6 +101,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-documentdb-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -86,7 +113,187 @@ artifacts:
   json-ld/amazon-documentdb-context.jsonld:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-documentdb-add-tags-to-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-copy-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-cluster-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-cluster-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-cluster-snapshot-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-cluster-snapshot-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbcluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbcluster-snapshot-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-dbsubnet-group-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-event-subscription-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-create-global-cluster-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-dbcluster-parameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-documentdb-dbcluster-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-cluster-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-cluster-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-cluster-snapshot-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-cluster-snapshot-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-dbcluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-dbcluster-snapshot-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-delete-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-dbcluster-parameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-dbcluster-snapshots-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-dbclusters-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-dbengine-versions-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-dbsubnet-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-event-subscriptions-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-events-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-describe-global-clusters-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-event-subscriptions-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-get-cluster-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-get-cluster-snapshot-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-get-cluster-snapshot-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-global-clusters-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-list-tags-for-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-list-tags-for-resource-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-dbcluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-dbcluster-snapshot-attribute-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-dbinstance-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-modify-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-remove-tags-from-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-reset-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-restore-cluster-from-snapshot-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-restore-dbcluster-from-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-restore-dbcluster-to-point-in-time-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-tag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-untag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-documentdb-update-cluster-input-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/documentdb-openapi-create-db-cluster-result-schema.json:
@@ -113,7 +320,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -182,11 +389,31 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-documentdb-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-documentdb-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-documentdb-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-documentdb-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-documentdb-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
+  mcp/amazon-documentdb-tool-crosswalk.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-documentdb-amazon-documentdb-api-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-documentdb-cluster-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-documentdb-cluster-snapshot-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-documentdb-db-cluster-api-openapi.yml:
@@ -213,6 +440,12 @@ artifacts:
   openapi/amazon-documentdb-tag-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  packages/amazon-documentdb-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-documentdb-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-documentdb-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -220,9 +453,12 @@ artifacts:
     method: derived
     evidence: openapi/amazon-documentdb
   rate-limits/amazon-documentdb-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-documentdb-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-documentdb-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-documentdb-spectral-rules.yml:
@@ -241,8 +477,34 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/docdb-2014-10-31.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/docdb/service/2014-10-31/docdb-2014-10-31.json
+      (sha256 ec32451e4bda, fetched 2026-11-11T21:08:35+00:00)
+  smithy/docdb-elastic-2022-11-28.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/docdb-elastic/service/2022-11-28/docdb-elastic-2022-11-28.json
+      (sha256 a096d665ac8f, fetched 2026-11-11T21:08:36+00:00)
+  terms/amazon-documentdb-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-documentdb-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-documentdb-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-documentdb-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-documentdb-builder-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-documentdb-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-documentdb-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-documentdb-well-known.yml:
     method: unknown
     evidence: no authorship recorded
